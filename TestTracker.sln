@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTracker", "TestTracker\TestTracker.csproj", "{E2D83948-1DB3-4322-8FFF-CA9202E41CE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2D83948-1DB3-4322-8FFF-CA9202E41CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D83948-1DB3-4322-8FFF-CA9202E41CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D83948-1DB3-4322-8FFF-CA9202E41CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D83948-1DB3-4322-8FFF-CA9202E41CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7706BBE9-65F3-4BDE-A206-3ECCDABC5DB4}
+	EndGlobalSection
+EndGlobal
