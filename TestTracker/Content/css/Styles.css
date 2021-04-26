@@ -1,0 +1,27 @@
+﻿body {
+    background-color: #fbfbfb;
+    font-family: Arial;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.login-form {
+    padding: 50px;
+    box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+}
+
+    .login-form > h4 {
+        text-align: center;
+        margin-bottom: 20px
+    }
+
+    .login-form > .btn-primary, .login-form > .form-group > .form-control {
+        height: 50px;
+    }
+.login-icon {
+    margin-bottom: 25px;
+    text-align: center;
+}
