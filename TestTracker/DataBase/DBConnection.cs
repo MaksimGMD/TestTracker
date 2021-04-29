@@ -16,7 +16,7 @@ namespace TestTracker
             "TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False");
 
         //Строка для таблица БД
-        public static string qrProjects = "SELECT ProjectName, ProjectVersion, (SELECT COUNT(*) FROM Test WHERE IdProject = ProjectUser.IdProject) as 'TesCount' " +
+        public static string qrProjects = "SELECT ProjectName, ProjectVersion, (SELECT COUNT(*) FROM Test WHERE IdProject = ProjectUser.IdProject) AS 'TesCount' " +
             "FROM ProjectUser " +
             "INNER JOIN Project ON ProjectId = IdProject WHERE IdUser = 1";
     }
