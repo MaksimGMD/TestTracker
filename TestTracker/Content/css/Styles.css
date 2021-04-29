@@ -1,6 +1,15 @@
 ﻿body {
-    background-color: #fbfbfb;
+    background-color: #ffffff;
     font-family: Arial;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.container-fluid {
+    margin-top: 30px
 }
 
 .card {
@@ -21,7 +30,49 @@
     .login-form > .btn-primary, .login-form > .form-group > .form-control {
         height: 50px;
     }
+
 .login-icon {
     margin-bottom: 25px;
     text-align: center;
+}
+
+.projects-title {
+    margin-bottom: 30px
+}
+
+    .projects-title > h2 {
+        font-weight: bold;
+    }
+
+.projects-add-section {
+    margin-bottom: 20px
+}
+
+.projects-card-link:hover {
+    text-decoration: none !important
+}
+
+.projects-card {
+    padding: 25px 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: .5s;
+    box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
+}
+
+    .projects-card:hover {
+        transform: scale(1.03);
+        transition: .5s;
+    }
+
+.projects-name-section > p {
+    font-size: 20px;
+    margin: unset;
+    color: #25262b;
+}
+
+.projects-version-section > p, .projects-statistic-section > p {
+    font-size: 18px;
+    margin: unset;
+    color: #25262b;
 }

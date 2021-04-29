@@ -5,7 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace TestTracker.DataBase
+namespace TestTracker
 {
     public class DBConnection
     {
@@ -14,5 +14,10 @@ namespace TestTracker.DataBase
             "Data Source=DESKTOP-2OC8HFJ\\MYGRIT; Initial Catalog=TestTracker;" +
             "Integrated Security=True; Connect Timeout=30; Encrypt=False;" +
             "TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False");
+
+        //Строка для таблица БД
+        public static string qrProjects = "SELECT ProjectName, ProjectVersion, (SELECT COUNT(*) FROM Test WHERE IdProject = ProjectUser.IdProject) as 'TesCount' " +
+            "FROM ProjectUser " +
+            "INNER JOIN Project ON ProjectId = IdProject WHERE IdUser = 1";
     }
 }

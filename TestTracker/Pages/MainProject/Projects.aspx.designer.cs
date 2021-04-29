@@ -11,7 +11,25 @@ namespace TestTracker.Pages.MainProject
 {
 
 
-    public partial class WebForm1
+    public partial class Projects
     {
+
+        /// <summary>
+        /// sdsProject элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsProject;
+
+        /// <summary>
+        /// rpProjects элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpProjects;
     }
 }
