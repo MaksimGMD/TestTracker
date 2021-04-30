@@ -9,6 +9,7 @@ namespace TestTracker
 {
     public class DBConnection
     {
+
         //Строка подключения к базе данных
         public static SqlConnection connection = new SqlConnection(
             "Data Source=DESKTOP-2OC8HFJ\\MYGRIT; Initial Catalog=TestTracker;" +
@@ -19,5 +20,8 @@ namespace TestTracker
         public static string qrProjects = "SELECT ProjectName, ProjectVersion, (SELECT COUNT(*) FROM Test WHERE IdProject = ProjectUser.IdProject) AS 'TesCount' " +
             "FROM ProjectUser " +
             "INNER JOIN Project ON ProjectId = IdProject WHERE IdUser = 1";
+
+
+        public static int idUser; //id пользователя
     }
 }

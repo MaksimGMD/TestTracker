@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace TestTracker.Pages.MainProject
 {
@@ -16,6 +17,10 @@ namespace TestTracker.Pages.MainProject
             if (!IsPostBack)
             {
                 rpFill(QR);
+                if(User.Identity.IsAuthenticated)
+                {
+                   
+                }
             }
         }
         //Заполнение данными список книг

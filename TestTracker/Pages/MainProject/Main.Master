@@ -31,8 +31,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Профиль <span class="sr-only"></span></a>
                     </li>
+                    <%--<li class="nav-item">
+                        <asp:Button ID="btLogin" CssClass="btn btn-outline-primary" Text="Войти"></asp:Button>
+                    </li>--%>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" href="../Common/Login.aspx" data-tip="">Войти</a>
+                        <asp:Button ID="btLogout" runat="server" CssClass="btn btn-outline-danger" Text="Выйти" OnClick="btLogout_Click"></asp:Button>
                     </li>
                 </ul>
             </div>

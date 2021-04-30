@@ -24,6 +24,15 @@ namespace TestTracker.Pages.Common
         protected global::System.Web.UI.HtmlControls.HtmlForm LoginForm;
 
         /// <summary>
+        /// alert элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert;
+
+        /// <summary>
         /// ValidationSummary1 элемент управления.
         /// </summary>
         /// <remarks>
@@ -33,21 +42,39 @@ namespace TestTracker.Pages.Common
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
 
         /// <summary>
-        /// exampleInputEmail1 элемент управления.
+        /// tbLogin элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox exampleInputEmail1;
+        protected global::System.Web.UI.WebControls.TextBox tbLogin;
 
         /// <summary>
-        /// TextBox1 элемент управления.
+        /// tbPassword элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox tbPassword;
+
+        /// <summary>
+        /// chCookie элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chCookie;
+
+        /// <summary>
+        /// btEnter элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btEnter;
     }
 }

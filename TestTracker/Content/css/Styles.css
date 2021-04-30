@@ -31,6 +31,10 @@
         height: 50px;
     }
 
+.form-check {
+    margin-bottom: 16px
+}
+
 .login-icon {
     margin-bottom: 25px;
     text-align: center;
@@ -39,10 +43,6 @@
 .projects-title {
     margin-bottom: 30px
 }
-
-    .projects-title > h2 {
-        font-weight: bold;
-    }
 
 .projects-add-section {
     margin-bottom: 20px

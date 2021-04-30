@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/MainProject/Main.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="TestTracker.Pages.MainProject.Projects" %>
+﻿<%@ Page Title="Проекты" Language="C#" MasterPageFile="~/Pages/MainProject/Main.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="TestTracker.Pages.MainProject.Projects" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
     <asp:SqlDataSource ID="sdsProject" runat="server"></asp:SqlDataSource>
     <div class="projects-wrapper container">
         <div class="projects-title row">
-            <h2>Проекты</h2>
+            <p class="h2">Проекты</p>
         </div>
         <%--<div class="projects-add-section row">
             <asp:Button runat="server" ID="btbAdd" Text="Добавить проект" CssClass="btn btn-primary" />
