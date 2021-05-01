@@ -48,7 +48,7 @@ body {
 .sidebar-heading {
     background: #23282e;
     color: #e6f2fd;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
 }
 
@@ -120,3 +120,36 @@ tr:nth-child(odd) {
         color: #e1f1ff
     }
 /*---------------------------*/
+
+.Error {
+    font-size: 14px;
+    color: #cc0000;
+    font-weight: 400;
+}
+
+.h2 {
+    margin-top: 15px;
+}
+
+.input-search {
+    width: 300px;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #2e353d;
+}
+
+.btn-search {
+    height: 36px;
+    background: #2e353d;
+    border: 1px solid #2e353d;
+    border-radius: 0 5px 5px 0;
+}
+
+    .btn-search i {
+        color: #e1f1ff;
+    }
+
+.input-search:focus {
+    outline: none;
+    box-shadow: 0 0 8px #666;
+}

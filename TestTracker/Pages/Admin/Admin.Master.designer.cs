@@ -87,31 +87,13 @@ namespace TestTracker.Pages.Admin
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aEmployee;
 
         /// <summary>
-        /// navbarDropdown элемент управления.
+        /// btOut элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton navbarDropdown;
-
-        /// <summary>
-        /// dvOut элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvOut;
-
-        /// <summary>
-        /// dvIn элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvIn;
+        protected global::System.Web.UI.WebControls.LinkButton btOut;
 
         /// <summary>
         /// cphMainContent элемент управления.

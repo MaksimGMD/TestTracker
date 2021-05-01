@@ -74,3 +74,5 @@ C:\Users\maksg\source\repos\TestTracker\TestTracker\obj\Debug\TestTracker.csproj
 C:\Users\maksg\source\repos\TestTracker\TestTracker\obj\Debug\TestTracker.dll
 C:\Users\maksg\source\repos\TestTracker\TestTracker\obj\Debug\TestTracker.pdb
 C:\Users\maksg\source\repos\TestTracker\TestTracker\obj\Debug\TestTracker.csprojAssemblyReference.cache
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\FontAwesome.WPF.dll
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\FontAwesome.WPF.xml

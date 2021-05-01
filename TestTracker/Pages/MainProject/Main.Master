@@ -16,7 +16,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-          <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
             <a class="navbar-brand" href="Projects.aspx">
                 <img src="../../Content/img/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Test tracker">
                 Test tracker
@@ -44,6 +44,11 @@
         <div>
             <div class="container-fluid">
                 <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+                    <script type="text/javascript">
+                        function isDelete() {
+                            return confirm("Вы уверенны, что хотите удалить выбранную запись?");
+                        }
+                    </script>
                 </asp:ContentPlaceHolder>
             </div>
         </div>
