@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Проекты" Language="C#" MasterPageFile="~/Pages/MainProject/Main.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="TestTracker.Pages.MainProject.Projects" %>
+﻿<%@ Page Title="Test tracker | Проекты" Language="C#" MasterPageFile="~/Pages/MainProject/Main.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="TestTracker.Pages.MainProject.Projects" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
     <asp:SqlDataSource ID="sdsProject" runat="server"></asp:SqlDataSource>
@@ -14,13 +14,13 @@
                 <a href="#" class="projects-card-link">
                     <div class="card projects-card">
                         <div class="row align-items-center justify-content-between">
-                            <div class="projects-name-section col-md-5">
+                            <div class="projects-card-section col-md-5">
                                 <p><%#Eval("ProjectName") %></p>
                             </div>
-                            <div class="projects-version-section col-md-4">
+                            <div class="projects-card-section col-md-4">
                                 <p>v<%#Eval("ProjectVersion") %></p>
                             </div>
-                            <div class="projects-statistic-section col-md-3">
+                            <div class="projects-card-section col-md-3">
                                 <p>Тестов: <%#Eval("TesCount") %></p>
                             </div>
                         </div>

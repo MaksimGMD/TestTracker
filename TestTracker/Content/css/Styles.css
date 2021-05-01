@@ -65,14 +65,12 @@
         transition: .5s;
     }
 
-.projects-name-section > p {
+.projects-card-section {
+    text-align:center;
+}
+.projects-card-section > p {
     font-size: 20px;
     margin: unset;
     color: #25262b;
 }
 
-.projects-version-section > p, .projects-statistic-section > p {
-    font-size: 18px;
-    margin: unset;
-    color: #25262b;
-}
