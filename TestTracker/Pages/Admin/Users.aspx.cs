@@ -199,8 +199,9 @@ namespace TestTracker.Pages.Admin
                     }
                     else
                     {
-                        procedures.UserInsert(tbName.Text, tbMiddleName.Text, tbSurname.Text, tbLogin.Text, tbPassword.Text, tbMail.Text, 
+                        procedures.UserInsert(tbName.Text, tbMiddleName.Text, tbSurname.Text, tbLogin.Text, tbPassword.Text, tbMail.Text,
                             Convert.ToInt32(ddlRole.SelectedValue.ToString()));
+                        Response.Redirect(Request.Url.AbsoluteUri);
                         gvFill(QR);
                         ddlRoleFill();
                         Cleaner();
@@ -217,26 +218,35 @@ namespace TestTracker.Pages.Admin
         {
             GridViewRow rows = gvUsers.SelectedRow;
             DataProcedures procedure = new DataProcedures();
-            switch (cbPasswordChange.Checked)
+            try
             {
-                case (true):
-                    RequiredFieldValidator7.IsValid = true;
-                    RegularExpressionValidator2.IsValid = true;
-                    procedure.UserUpdate(DBConnection.IdRecord, tbName.Text, tbMiddleName.Text, tbSurname.Text, tbLogin.Text, tbMail.Text, 
-                        Convert.ToInt32(ddlRole.SelectedValue.ToString()));
-                    procedure.UserPasswordUpdate(DBConnection.IdRecord, tbPassword.Text);
-                    break;
-                case (false):
-                    procedure.UserUpdate(DBConnection.IdRecord, tbName.Text, tbMiddleName.Text, tbSurname.Text, tbLogin.Text, tbMail.Text,
-                        Convert.ToInt32(ddlRole.SelectedValue.ToString()));
-                    break;
+
+                switch (cbPasswordChange.Checked)
+                {
+                    case (true):
+                        RequiredFieldValidator7.IsValid = true;
+                        RegularExpressionValidator2.IsValid = true;
+                        procedure.UserUpdate(DBConnection.IdRecord, tbName.Text, tbMiddleName.Text, tbSurname.Text, tbLogin.Text, tbMail.Text,
+                            Convert.ToInt32(ddlRole.SelectedValue.ToString()));
+                        procedure.UserPasswordUpdate(DBConnection.IdRecord, tbPassword.Text);
+                        break;
+                    case (false):
+                        procedure.UserUpdate(DBConnection.IdRecord, tbName.Text, tbMiddleName.Text, tbSurname.Text, tbLogin.Text, tbMail.Text,
+                            Convert.ToInt32(ddlRole.SelectedValue.ToString()));
+                        break;
+                }
+                Response.Redirect(Request.Url.AbsoluteUri);
+                Cleaner();
+                gvFill(QR);
+                btUpdate.Visible = false;
+                SelectedMessage.Visible = false;
+                cbPasswordChange.Visible = false;
+                DBConnection.IdRecord = 0;
             }
-            Cleaner();
-            gvFill(QR);
-            btUpdate.Visible = false;
-            SelectedMessage.Visible = false;
-            cbPasswordChange.Visible = false;
-            DBConnection.IdRecord = 0;
+            catch
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось обновить запись :(')", true);
+            }
         }
         //Отмена поиска и фльтрации
         protected void btCancel_Click(object sender, EventArgs e)

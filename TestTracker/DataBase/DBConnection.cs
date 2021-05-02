@@ -27,7 +27,8 @@ namespace TestTracker
             qrUsers = "select [UserId] as 'ID', [UserSurname] as 'Фамилия', [UserName] as 'Имя', [UserMiddleName] as 'Отчество', " +
             "[UserLogin] as 'Логин', [UserPassword], [UserEmail] as 'Почта', [IdRole], [RoleName] as 'Роль' " +
             "from [User] " +
-            "inner join [Role] on [RoleId] = [IdRole]";
+            "inner join [Role] on [RoleId] = [IdRole]",
+            qrProjectsAdmin = "select [ProjectId] as 'ID', [ProjectName] as 'Название проекта', [ProjectVersion] as 'Версия проекта' from [Project]";
 
 
 

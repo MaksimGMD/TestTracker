@@ -69,5 +69,35 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Добавление проекта
+        public void ProjectInsert(string ProjectName, int ProjectVersion)
+        {
+            commandConfig("ProjectInsert");
+            command.Parameters.AddWithValue("@ProjectName", ProjectName);
+            command.Parameters.AddWithValue("@ProjectVersion", ProjectVersion);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Обновление проекта
+        public void ProjectUpdate(int ProjectId, string ProjectName, int ProjectVersion)
+        {
+            commandConfig("ProjectUpdate");
+            command.Parameters.AddWithValue("@ProjectId", ProjectId);
+            command.Parameters.AddWithValue("@ProjectName", ProjectName);
+            command.Parameters.AddWithValue("@ProjectVersion", ProjectVersion);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Удаление проекта
+        public void ProjectDelete(int ProjectId)
+        {
+            commandConfig("ProjectDelete");
+            command.Parameters.AddWithValue("@ProjectId", ProjectId);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
     }
 }

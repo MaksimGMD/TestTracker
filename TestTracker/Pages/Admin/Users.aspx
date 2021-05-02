@@ -68,7 +68,7 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label for="tbPassword">Пароль</label>
-                    <asp:TextBox ID="tbPassword" runat="server" placeholder="Пароль" class="form-control" MaxLength="20"></asp:TextBox>
+                    <asp:TextBox ID="tbPassword" runat="server" placeholder="Пароль" class="form-control" MaxLength="20" TextMode="Password"></asp:TextBox>
                     <asp:CheckBox ID="cbPasswordChange" runat="server" Text="Изменить пароль" style="font-size: 16px; margin-top: 10px" Visible="false" Display="Dynamic" />
                     <br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" CssClass="Error" ErrorMessage="Введите пароль" ControlToValidate="tbPassword" Display="Dynamic"></asp:RequiredFieldValidator>

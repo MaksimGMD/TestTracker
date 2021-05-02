@@ -9,13 +9,10 @@
     <link href="../../Content/css/Admin.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../Content/bootstrap-grid.min.css" />
     <link rel="stylesheet" href="../../Content/bootstrap.min.css" />
-    <%--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="../../Content/fontawesome/css/all.min.css" />
     <script type="text/javascript" src="../../Scripts/jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../Scripts/popper-utils.min.js"></script>
-    <%--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">--%>
-    <%--<script src="https://kit.fontawesome.com/cdb9367be4.js" crossorigin="anonymous"></script>--%>
     <title></title>
 </head>
 <body>
@@ -25,13 +22,13 @@
             <div class="border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">Test tracker</div>
                 <div class="list-group list-group-flush">
-                    <a id="aWeb" href="~/Pages/MainProject/Projects.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-globe"></i>Открыть сайт</a>
-                    <a id="aUsers" href="~/Pages/Admin/Users.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-users"></i>Пользователи</a>
-                    <a id="aBooks" href="#" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-clipboard"></i>Проекты</a>
-                    <a id="a1" href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-user-times"></i>Назначение на проект</a>
-                    <a id="aOrders" href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-check-circle"></i>Тесты</a>
-                    <a id="aProfiles" href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-tasks"></i>Этапы тестирования</a>
-                    <a id="aEmployee" href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-comments"></i>Комментарии</a>
+                    <a href="~/Pages/MainProject/Projects.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-globe"></i>Открыть сайт</a>
+                    <a href="~/Pages/Admin/Users.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-users"></i>Пользователи</a>
+                    <a href="~/Pages/Admin/Projects.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-clipboard"></i>Проекты</a>
+                    <a href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-user-tag"></i>Назначение на проект</a>
+                    <a href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-check-circle"></i>Тесты</a>
+                    <a href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-tasks"></i>Этапы тестирования</a>
+                    <a href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-comments"></i>Комментарии</a>
                 </div>
             </div>
             <div id="page-content-wrapper">
