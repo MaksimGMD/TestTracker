@@ -28,7 +28,12 @@ namespace TestTracker
             "[UserLogin] as 'Логин', [UserPassword], [UserEmail] as 'Почта', [IdRole], [RoleName] as 'Роль' " +
             "from [User] " +
             "inner join [Role] on [RoleId] = [IdRole]",
-            qrProjectsAdmin = "select [ProjectId] as 'ID', [ProjectName] as 'Название проекта', [ProjectVersion] as 'Версия проекта' from [Project]";
+            qrProjectsAdmin = "select [ProjectId] as 'ID', [ProjectName] as 'Название проекта', [ProjectVersion] as 'Версия проекта' from [Project]",
+            qrUsersConcat = "select [UserId] as 'ID', (CONCAT_WS(' ',[UserSurname],[UserName],[UserMiddleName])) as 'Пользователь' from [User]",
+            qrProjectsUsers = "select [ProjectUserId] as 'ID', [ProjectId], [ProjectName] as 'Проект', [UserId], " +
+            "(CONCAT_WS(' ',[UserSurname],[UserName],[UserMiddleName])) as [Пользователь] from [ProjectUser] " +
+            "inner join [User] on [UserId] = [IdUser] " +
+            "inner join [Project] on [ProjectId] = [IdProject]";
 
 
 

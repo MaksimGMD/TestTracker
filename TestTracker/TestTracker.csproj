@@ -1754,6 +1754,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Admin\Projects.aspx" />
+    <Content Include="Pages\Admin\ProjectsUsers.aspx" />
     <Content Include="Pages\Admin\Users.aspx" />
     <Content Include="Pages\MainProject\Projects.aspx" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -1966,6 +1967,13 @@
     </Compile>
     <Compile Include="Pages\Admin\Projects.aspx.designer.cs">
       <DependentUpon>Projects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\ProjectsUsers.aspx.cs">
+      <DependentUpon>ProjectsUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\ProjectsUsers.aspx.designer.cs">
+      <DependentUpon>ProjectsUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
