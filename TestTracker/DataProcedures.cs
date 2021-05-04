@@ -129,5 +129,49 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Добавление теста
+        public void TestInsert(string TestName, string TestDescription, string TestDate, string TestResult, 
+            string TestJiraNumber, bool TestLogicalDelete, int IdStatus, int IdProject)
+        {
+            commandConfig("TestInsert");
+            command.Parameters.AddWithValue("@TestName", TestName);
+            command.Parameters.AddWithValue("@TestDescription", TestDescription);
+            command.Parameters.AddWithValue("@TestDate", TestDate);
+            command.Parameters.AddWithValue("@TestResult", TestResult);
+            command.Parameters.AddWithValue("@TestJiraNumber", TestJiraNumber);
+            command.Parameters.AddWithValue("@TestLogicalDelete", TestLogicalDelete);
+            command.Parameters.AddWithValue("@IdStatus", IdStatus);
+            command.Parameters.AddWithValue("@IdProject", IdProject);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Обновление теста
+        public void TestUpdate(int TestId, string TestName, string TestDescription, string TestResult,
+            string TestJiraNumber, bool TestLogicalDelete, int IdStatus, int IdProject, bool IsModified)
+        {
+            commandConfig("TestUpdate");
+            command.Parameters.AddWithValue("@TestId", TestId);
+            command.Parameters.AddWithValue("@TestName", TestName);
+            command.Parameters.AddWithValue("@TestDescription", TestDescription);
+            command.Parameters.AddWithValue("@TestResult", TestResult);
+            command.Parameters.AddWithValue("@TestJiraNumber", TestJiraNumber);
+            command.Parameters.AddWithValue("@TestLogicalDelete", TestLogicalDelete);
+            command.Parameters.AddWithValue("@IdStatus", IdStatus);
+            command.Parameters.AddWithValue("@IdProject", IdProject);
+            command.Parameters.AddWithValue("@IsModified", IsModified);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Удаление теста
+        public void TestDelete(int TestId)
+        {
+            commandConfig("TestDelete");
+            command.Parameters.AddWithValue("@TestId", TestId);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
     }
 }

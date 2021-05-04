@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="tbVersion">Версия проекта</label>
                     <asp:TextBox ID="tbVersion" runat="server" placeholder="Версия проекта" class="form-control" MaxLength="8" TextMode="Number" min="0" max="1000"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="Error" ErrorMessage="Введите название проекта" Display="Dynamic" ControlToValidate="tbVersion"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="Error" ErrorMessage="Введите версию проекта" Display="Dynamic" ControlToValidate="tbVersion"></asp:RequiredFieldValidator>
                 </div>
             </div>
         </div>

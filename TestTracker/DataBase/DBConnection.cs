@@ -33,7 +33,13 @@ namespace TestTracker
             qrProjectsUsers = "select [ProjectUserId] as 'ID', [ProjectId], [ProjectName] as 'Проект', [UserId], " +
             "(CONCAT_WS(' ',[UserSurname],[UserName],[UserMiddleName])) as [Пользователь] from [ProjectUser] " +
             "inner join [User] on [UserId] = [IdUser] " +
-            "inner join [Project] on [ProjectId] = [IdProject]";
+            "inner join [Project] on [ProjectId] = [IdProject]",
+            qrTests = "select [TestID] as 'ID', [TestName] as 'Название теста', [TestDescription] as 'Описание теста', [TestDate] as 'Дата теста', " +
+            "[TestResult] as 'Результат теста', [TestJiraNumber] as 'Номер в Jira', [IdStatus], [StatusName] as 'Статус', [IdProject], [ProjectName] as 'Проект', " +
+            "[TestLogicalDelete] 'Помечен на удаление'  from [Test] " +
+            "inner join [Status] on [StatusId] = [IdStatus] " +
+            "inner join [Project] on [ProjectId] = [IdProject]",
+            qrStatus = "select [StatusId] as 'ID',   [StatusName] as 'Статус' from [Status] order by [ID] desc";
 
 
 
