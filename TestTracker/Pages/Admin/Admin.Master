@@ -27,7 +27,7 @@
                     <a href="~/Pages/Admin/Projects.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fa fa-clipboard"></i>Проекты</a>
                     <a href="~/Pages/Admin/ProjectsUsers.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-user-tag"></i>Назначение на проект</a>
                     <a href="~/Pages/Admin/Tests.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-check-circle"></i>Тесты</a>
-                    <a href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-tasks"></i>Этапы тестирования</a>
+                    <a href="~/Pages/Admin/Steps.aspx" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-tasks"></i>Этапы тестирования</a>
                     <a href="#" class="list-group-item list-group-item-action" runat="server"><i class="fas fa-comments"></i>Комментарии</a>
                 </div>
             </div>

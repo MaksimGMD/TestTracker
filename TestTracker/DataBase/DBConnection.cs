@@ -39,7 +39,9 @@ namespace TestTracker
             "[TestLogicalDelete] 'Помечен на удаление'  from [Test] " +
             "inner join [Status] on [StatusId] = [IdStatus] " +
             "inner join [Project] on [ProjectId] = [IdProject]",
-            qrStatus = "select [StatusId] as 'ID',   [StatusName] as 'Статус' from [Status] order by [ID] desc";
+            qrStatus = "select [StatusId] as 'ID',   [StatusName] as 'Статус' from [Status] order by [ID] desc",
+            qrSteps = "select [StepId] as 'ID', [StepNumber] as 'Номер этапа', [StepName] as 'Название этапа', [IdTest], [TestName] as 'Тест' from [Step] " +
+            "inner join [Test] on [TestId] = [IdTest]";
 
 
 

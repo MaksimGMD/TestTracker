@@ -173,5 +173,39 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Добавление этапа тестирования
+        public void StepInsert(string StepNumber, string StepName, int IdTest)
+        {
+            commandConfig("StepInsert");
+            command.Parameters.AddWithValue("@StepNumber", StepNumber);
+            command.Parameters.AddWithValue("@StepName", StepName);
+            command.Parameters.AddWithValue("@IdTest", IdTest);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Обновление этапа тестирования
+        public void StepUpdate(int StepId, string StepNumber, string StepName, int IdTest, bool IsModified)
+        {
+            commandConfig("StepUpdate");
+            command.Parameters.AddWithValue("@StepId", StepId);
+            command.Parameters.AddWithValue("@StepNumber", StepNumber);
+            command.Parameters.AddWithValue("@StepName", StepName);
+            command.Parameters.AddWithValue("@IdTest", IdTest);
+            command.Parameters.AddWithValue("@IsModified", IsModified);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Удаление этапа тестирования
+        public void StepDelete(int StepId, int IdTest)
+        {
+            commandConfig("StepDelete");
+            command.Parameters.AddWithValue("@StepId", StepId);
+            command.Parameters.AddWithValue("@IdTest", IdTest);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
     }
 }

@@ -1755,6 +1755,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\Admin\Projects.aspx" />
     <Content Include="Pages\Admin\ProjectsUsers.aspx" />
+    <Content Include="Pages\Admin\Steps.aspx" />
     <Content Include="Pages\Admin\Tests.aspx" />
     <Content Include="Pages\Admin\Users.aspx" />
     <Content Include="Pages\MainProject\Projects.aspx" />
@@ -1975,6 +1976,13 @@
     </Compile>
     <Compile Include="Pages\Admin\ProjectsUsers.aspx.designer.cs">
       <DependentUpon>ProjectsUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\Steps.aspx.cs">
+      <DependentUpon>Steps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Admin\Steps.aspx.designer.cs">
+      <DependentUpon>Steps.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\Tests.aspx.cs">
       <DependentUpon>Tests.aspx</DependentUpon>

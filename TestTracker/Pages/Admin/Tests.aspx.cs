@@ -230,28 +230,9 @@ namespace TestTracker.Pages.Admin
         //Обвление данных
         protected void btUpdate_Click(object sender, EventArgs e)
         {
-            //bool IsModified = false;
-            //int selectedRow = gvTests.SelectedRow.RowIndex;
-            //GridViewRow rows = gvTests.SelectedRow;
-            //DBConnection.IdRecord = Convert.ToInt32(rows.Cells[1].Text.ToString());
-            //tbTestName.Text = rows.Cells[2].Text.ToString();
-            //tbDescription.Text = rows.Cells[3].Text.ToString();
-            //tbResult.Text = rows.Cells[5].Text.Replace("&nbsp;", "");
-            //tbNumber.Text = rows.Cells[6].Text.ToString();
-            //ddlProject.SelectedValue = rows.Cells[9].Text.ToString();
-            //ddlStatus.SelectedValue = rows.Cells[7].Text.ToString();
-            //CheckBox checkBox = (CheckBox)gvTests.Rows[selectedRow].Cells[11].Controls[0];
-            //cbDelete.Checked = checkBox.Checked;
             DataProcedures procedures = new DataProcedures();
             try
             {
-                //if (tbTestName.Text != rows.Cells[2].Text.ToString() ||
-                //    tbDescription.Text != rows.Cells[3].Text.ToString() ||
-                //    tbResult.Text != rows.Cells[5].Text.Replace("&nbsp;", "") ||
-                //    tbNumber.Text != rows.Cells[6].Text.ToString() ||
-                //     ddlProject.SelectedValue != rows.Cells[9].Text.ToString() ||
-                //     ddlStatus.SelectedValue != rows.Cells[7].Text.ToString())
-
                 bool LogicalDelete;
                 if (cbDelete.Checked)
                 {
