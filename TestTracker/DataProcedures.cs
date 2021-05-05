@@ -207,5 +207,40 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Добавление комментария
+        public void CommentInsert(string CommentContent, string CommentDate, int IdUser, int IdTest)
+        {
+            commandConfig("CommentInsert");
+            command.Parameters.AddWithValue("@CommentContent", CommentContent);
+            command.Parameters.AddWithValue("@CommentDate", CommentDate);
+            command.Parameters.AddWithValue("@IdUser", IdUser);
+            command.Parameters.AddWithValue("@IdTest", IdTest);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Обновление комментария
+        public void CommentUpdate(int CommentId, string CommentContent, string CommentDate, int IdTest, bool IsModified)
+        {
+            commandConfig("CommentUpdate");
+            command.Parameters.AddWithValue("@CommentId", CommentId);
+            command.Parameters.AddWithValue("@CommentContent", CommentContent);
+            command.Parameters.AddWithValue("@CommentDate", CommentDate);
+            command.Parameters.AddWithValue("@IdTest", IdTest);
+            command.Parameters.AddWithValue("@IsModified", IsModified);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
+        //Удаление комментария
+        public void CommentDelete(int CommentId, int IdTest)
+        {
+            commandConfig("CommentDelete");
+            command.Parameters.AddWithValue("@CommentId", CommentId);
+            command.Parameters.AddWithValue("@IdTest", IdTest);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
     }
 }

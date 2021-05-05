@@ -41,7 +41,11 @@ namespace TestTracker
             "inner join [Project] on [ProjectId] = [IdProject]",
             qrStatus = "select [StatusId] as 'ID',   [StatusName] as 'Статус' from [Status] order by [ID] desc",
             qrSteps = "select [StepId] as 'ID', [StepNumber] as 'Номер этапа', [StepName] as 'Название этапа', [IdTest], [TestName] as 'Тест' from [Step] " +
-            "inner join [Test] on [TestId] = [IdTest]";
+            "inner join [Test] on [TestId] = [IdTest]",
+            qrComment = "select [CommentId] as 'ID', [CommentContent] as 'Комментарий', [CommentDate] as 'Дата комментария', [IdUser], " +
+            "(CONCAT_WS(' ',[UserSurname],[UserName])) as 'Пользователь', [IdTest], [TestName] as 'Тест' from[Comment] " +
+            "inner join[User] on[UserId] = [IdUser] " +
+            "inner join[Test] on[TestId] = [IdTest]";
 
 
 
@@ -116,6 +120,29 @@ namespace TestTracker
             {
                 MailCheck = 0;
                 return MailCheck;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// Получает id пользователя
+        /// </summary>
+        /// <param name="UserName">Логин или электронная почта пользователя</param>
+        /// <returns>id пользователя</returns>
+        public Int32 GetUserId(string UserName)
+        {
+            try
+            {
+                command.CommandText = "select [UserId] from[User] " +
+                    "where[UserLogin] like '%" + UserName + "%' or [UserEmail] like '%" + UserName + "%'";
+                connection.Open();
+                return Convert.ToInt32(command.ExecuteScalar().ToString());
+            }
+            catch
+            {
+                return Convert.ToInt32(command.ExecuteScalar().ToString());
             }
             finally
             {
