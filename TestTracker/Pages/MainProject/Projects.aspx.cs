@@ -10,17 +10,14 @@ namespace TestTracker.Pages.MainProject
 {
     public partial class Projects : System.Web.UI.Page
     {
-        private string QR = ""; //Переменная для команд БД
+        private string QR = ""; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            QR = DBConnection.qrProjects;
+            string User = HttpContext.Current.User.Identity.Name.ToString();
+            QR = DBConnection.qrProjects + " where [UserLogin] = '" + User + "' or [UserEmail] = '" + User + "'";
             if (!IsPostBack)
             {
                 rpFill(QR);
-                if(User.Identity.IsAuthenticated)
-                {
-                   
-                }
             }
         }
         //Заполнение данными список книг
@@ -31,6 +28,15 @@ namespace TestTracker.Pages.MainProject
             sdsProject.DataSourceMode = SqlDataSourceMode.DataReader;
             rpProjects.DataSource = sdsProject;
             rpProjects.DataBind();
+        }
+        //Открывает страницу с тестами на основе ProjectId
+        protected void btTests_Click(object sender, EventArgs e)
+        {
+            var btn = (LinkButton)sender;
+            var item = (RepeaterItem)btn.NamingContainer;
+            var ProjectId = ((Label)item.FindControl("lblID")).Text;
+            //Перейти на страницу Tests.aspx с ProjectId в зашифрованном виде
+            Response.Redirect("Tests.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
         }
     }
 }

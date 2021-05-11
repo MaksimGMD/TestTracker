@@ -76,3 +76,11 @@ C:\Users\maksg\source\repos\TestTracker\TestTracker\obj\Debug\TestTracker.pdb
 C:\Users\maksg\source\repos\TestTracker\TestTracker\obj\Debug\TestTracker.csprojAssemblyReference.cache
 C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\FontAwesome.WPF.dll
 C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\FontAwesome.WPF.xml
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\ClosedXML.dll
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\DocumentFormat.OpenXml.dll
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\ExcelNumberFormat.dll
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\System.IO.Packaging.dll
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\ClosedXML.pdb
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\ClosedXML.xml
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\DocumentFormat.OpenXml.xml
+C:\Users\maksg\source\repos\TestTracker\TestTracker\bin\ExcelNumberFormat.xml

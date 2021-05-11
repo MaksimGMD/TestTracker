@@ -242,5 +242,15 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Логическое удаление теста пользователем
+        public void TestLogicalDelete(int TestId, int IdProject)
+        {
+            commandConfig("TestLogicalDelete");
+            command.Parameters.AddWithValue("@TestId", TestId);
+            command.Parameters.AddWithValue("@IdProject", IdProject);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
     }
 }

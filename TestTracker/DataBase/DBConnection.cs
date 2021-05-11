@@ -20,9 +20,9 @@ namespace TestTracker
         /// Строка выбора данных из БД
         /// </summary>
         public static string
-            qrProjects = "SELECT ProjectName, ProjectVersion, (SELECT COUNT(*) FROM Test WHERE IdProject = ProjectUser.IdProject) AS 'TesCount' " +
-            "FROM ProjectUser " +
-            "INNER JOIN Project ON ProjectId = IdProject WHERE IdUser = 1",
+            qrProjects = "SELECT ProjectId,  ProjectName, ProjectVersion, (SELECT COUNT(*) FROM Test WHERE IdProject = ProjectUser.IdProject and [TestLogicalDelete] = 'False') AS 'TesCount' FROM ProjectUser " +
+            "INNER JOIN Project ON ProjectId = IdProject " +
+            "inner join [User] on [IdUser] = [UserId]",
             qrRole = "select [RoleId], [RoleName] from [Role]",
             qrUsers = "select [UserId] as 'ID', [UserSurname] as 'Фамилия', [UserName] as 'Имя', [UserMiddleName] as 'Отчество', " +
             "[UserLogin] as 'Логин', [UserPassword], [UserEmail] as 'Почта', [IdRole], [RoleName] as 'Роль' " +
@@ -45,7 +45,10 @@ namespace TestTracker
             qrComment = "select [CommentId] as 'ID', [CommentContent] as 'Комментарий', [CommentDate] as 'Дата комментария', [IdUser], " +
             "(CONCAT_WS(' ',[UserSurname],[UserName])) as 'Пользователь', [IdTest], [TestName] as 'Тест' from[Comment] " +
             "inner join[User] on[UserId] = [IdUser] " +
-            "inner join[Test] on[TestId] = [IdTest]";
+            "inner join[Test] on[TestId] = [IdTest]",
+            qrTestMain = "select [TestId] as 'ID', [TestName] as 'Название теста', [TestDescription] as 'Описание', [TestDate] as 'Дата', " +
+            "[IdStatus], [StatusName] as 'Статус', [TestJiraNumber] as 'Номер задачи', [TestResult] from [Test] inner join [Status] on [StatusId] = [IdStatus] where [TestLogicalDelete] = 'False'",
+            qrUsersMail = "select [IdUser], [UserEmail] from [ProjectUser] inner join [User] on [IdUser] = [UserId]";
 
 
 

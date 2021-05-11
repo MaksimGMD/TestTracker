@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../Content/bootstrap-grid.min.css" />
     <link rel="stylesheet" href="../../Content/bootstrap.min.css" />
     <link rel="stylesheet" href="../../Content/css/Styles.css" />
+    <link rel="stylesheet" href="../../Content/fontawesome/css/all.min.css" />
     <script type="text/javascript" src="../../Scripts/jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../Scripts/popper-utils.min.js"></script>
@@ -42,15 +43,8 @@
             </div>
         </nav>
         <div>
-            <div class="container-fluid">
-                <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
-                    <script type="text/javascript">
-                        function isDelete() {
-                            return confirm("Вы уверенны, что хотите удалить выбранную запись?");
-                        }
-                    </script>
-                </asp:ContentPlaceHolder>
-            </div>
+            <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
     </form>
 </body>

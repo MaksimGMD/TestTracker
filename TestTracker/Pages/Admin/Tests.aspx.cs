@@ -213,7 +213,7 @@ namespace TestTracker.Pages.Admin
                 {
                     LogicalDelete = false;
                 }
-                procedures.TestInsert(tbTestName.Text, tbDescription.Text, DateTime.Now.ToString("dd/MM/yyyy"), tbResult.Text, tbNumber.Text,
+                procedures.TestInsert(tbTestName.Text, tbDescription.Text, DateTime.Now.ToString("dd.MM.yyyy"), tbResult.Text, tbNumber.Text,
                     LogicalDelete, Convert.ToInt32(ddlStatus.SelectedValue.ToString()), Convert.ToInt32(ddlProject.SelectedValue.ToString()));
                 Response.Redirect(Request.Url.AbsoluteUri);
                 gvFill(QR);

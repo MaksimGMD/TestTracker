@@ -57,7 +57,7 @@ namespace TestTracker.Pages.Admin
             try
             {
                 int UserId = connection.GetUserId(HttpContext.Current.User.Identity.Name.ToString());
-                procedures.CommentInsert(tbCommnet.Text, DateTime.Now.ToString("dd/MM/yyyy"), UserId, Convert.ToInt32(ddlTest.SelectedValue.ToString()));
+                procedures.CommentInsert(tbCommnet.Text, DateTime.Now.ToString("dd.MM.yyyy"), UserId, Convert.ToInt32(ddlTest.SelectedValue.ToString()));
                     Response.Redirect(Request.Url.AbsoluteUri);
                 gvFill(QR);
                 Cleaner();
@@ -76,7 +76,7 @@ namespace TestTracker.Pages.Admin
                 if (DBConnection.IdRecord != 0)
                 {
                     DataProcedures procedures = new DataProcedures();
-                    procedures.CommentUpdate(DBConnection.IdRecord, tbCommnet.Text, DateTime.Now.ToString("dd/MM/yyyy"), Convert.ToInt32(ddlTest.SelectedValue.ToString()), IsModified);
+                    procedures.CommentUpdate(DBConnection.IdRecord, tbCommnet.Text, DateTime.Now.ToString("dd.MM.yyyy"), Convert.ToInt32(ddlTest.SelectedValue.ToString()), IsModified);
                     Response.Redirect(Request.Url.AbsoluteUri);
                     gvFill(QR);
                     Cleaner();

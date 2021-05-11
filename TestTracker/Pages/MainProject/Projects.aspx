@@ -4,14 +4,12 @@
     <asp:SqlDataSource ID="sdsProject" runat="server"></asp:SqlDataSource>
     <div class="projects-wrapper container">
         <div class="projects-title row">
-            <p class="h2">Проекты</p>
+            <p class="h4">Проекты</p>
         </div>
-        <%--<div class="projects-add-section row">
-            <asp:Button runat="server" ID="btbAdd" Text="Добавить проект" CssClass="btn btn-primary" />
-        </div>--%>
         <asp:Repeater ID="rpProjects" runat="server">
             <ItemTemplate>
-                <a href="#" class="projects-card-link">
+                <asp:LinkButton class="projects-card-link" runat="server" ID="btTests" OnClick="btTests_Click">
+                    <asp:Label ID="lblID" runat="server" Text='<%#Eval("ProjectId") %>' Style="display: none" />
                     <div class="card projects-card">
                         <div class="row align-items-center justify-content-between">
                             <div class="projects-card-section col-md-5">
@@ -25,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </asp:LinkButton>
             </ItemTemplate>
         </asp:Repeater>
     </div>
