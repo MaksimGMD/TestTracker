@@ -48,7 +48,15 @@ namespace TestTracker
             "inner join[Test] on[TestId] = [IdTest]",
             qrTestMain = "select [TestId] as 'ID', [TestName] as 'Название теста', [TestDescription] as 'Описание', [TestDate] as 'Дата', " +
             "[IdStatus], [StatusName] as 'Статус', [TestJiraNumber] as 'Номер задачи', [TestResult] from [Test] inner join [Status] on [StatusId] = [IdStatus] where [TestLogicalDelete] = 'False'",
-            qrUsersMail = "select [IdUser], [UserEmail] from [ProjectUser] inner join [User] on [IdUser] = [UserId]";
+            qrUsersMail = "select [IdUser], [UserEmail] from [ProjectUser] inner join [User] on [IdUser] = [UserId]",
+            qrUsersTest = "select [IdProject], " +
+            "[UserSurname] + ' ' + [UserName] + ' ' + [UserMiddleName] as 'Пользователь' from [ProjectUser] " +
+            "inner join [User] on [UserId] = [IdUser] " +
+            "inner join [Project] on [ProjectID] = [IdProject]",
+            qrTestDetails = "select ProjectName, TestDate, StatusName, TestJiraNumber from [Test] " +
+            "inner join [Status] on [StatusId] = [IdStatus] " +
+            "inner join [Project] on [ProjectId] = [IdProject]",
+            qrTestSteps = "select StepId, StepNumber, StepName from [Step]";
 
 
 

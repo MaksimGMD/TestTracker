@@ -73,13 +73,14 @@
     }
 
 .projects-card-section {
-    text-align:center;
+    text-align: center;
 }
-.projects-card-section > p {
-    font-size: 20px;
-    margin: unset;
-    color: #25262b;
-}
+
+    .projects-card-section > p {
+        font-size: 20px;
+        margin: unset;
+        color: #25262b;
+    }
 
 .fa, .fas {
     margin-right: 5px;
@@ -89,6 +90,7 @@
     display: inline-block;
     margin: 0 15px;
 }
+
 .progress-section > ul {
     padding: unset;
     margin-top: 15px
@@ -114,7 +116,7 @@
 
 /*Таблица*/
 .table td {
-    text-align:center
+    text-align: center
 }
 
 .table th {
@@ -145,3 +147,93 @@
 .users-section label {
     margin-left: 5px
 }
+
+li {
+    list-style-type: none;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #212529;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.details-title {
+    color: #6b778c;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.details-value {
+    color: #212529;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.step-number {
+    height: 25px;
+    width: 25px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 25px;
+    text-align: center;
+    color: #ffff;
+    font-weight: bold;
+    font-size: 14px
+}
+
+.test-step {
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.inactive-step {
+    width: 100%;
+    border: none;
+    color: #495057;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+}
+
+
+.btn-step {
+    background: #ffff;
+    border: none;
+    color: #7e7e7e;
+    transition: 0.5s;
+}
+
+    .btn-step:hover {
+        color: #383838;
+        transition: 0.3s;
+    }
+
+.btn-step-del:hover {
+    transition: 0.3s;
+    color: #df3b3b;
+}
+
+.btn-step-save {
+    color: #28a745;
+    transition: 0.3s;
+}
+
+    .btn-step-save:hover {
+        transition: 0.3s;
+        color: #218838
+    }
+
+.btn-step-cancel {
+    color: #dc3545;
+    transition: 0.3s;
+}
+
+    .btn-step-cancel:hover {
+        transition: 0.3s;
+        color: #c82333
+    }
