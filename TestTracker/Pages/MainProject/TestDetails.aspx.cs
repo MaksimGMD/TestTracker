@@ -27,11 +27,13 @@ namespace TestTracker.Pages.MainProject
                 if (TestId != null)
                 {
                     getProjectId();
+                    GetStatusId();
                     TestNameFill();
                     rpUsersFill(QRUsers);
                     rpDetailsFill(QRdetails);
                     DescriptionFill();
                     rpTestStepFill(QRSteps);
+                    ddlStatusFill();
                 }
                 else
                 {
@@ -122,7 +124,39 @@ namespace TestTracker.Pages.MainProject
                 DBConnection.connection.Close();
             }
         }
-
+        //Получает и устанавливает id статуса
+        private void GetStatusId()
+        {
+            SqlCommand command = new SqlCommand("", DBConnection.connection);
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "select [IdStatus] from [Test] where [TestId] = '" + TestId + "'";
+            try
+            {
+                DBConnection.connection.Open();
+                lblStatusID.Text = command.ExecuteScalar().ToString();
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                lblStatusID.Text = "";
+            }
+            finally
+            {
+                DBConnection.connection.Close();
+            }
+        }
+        //Заполнение списка статусов
+        private void ddlStatusFill()
+        {
+            sdsStatus.ConnectionString = DBConnection.connection.ConnectionString.ToString();
+            sdsStatus.SelectCommand = DBConnection.qrStatus;
+            sdsStatus.DataSourceMode = SqlDataSourceMode.DataReader;
+            ddlStatus.DataSource = sdsStatus;
+            ddlStatus.DataTextField = "Статус";
+            ddlStatus.DataValueField = "ID";
+            ddlStatus.DataBind();
+            ddlStatus.SelectedValue = lblStatusID.Text.ToString();
+        }
         //Заполнение списка этапов тестировани
         protected void rpTestStepFill(string qr)
         {
@@ -271,6 +305,21 @@ namespace TestTracker.Pages.MainProject
             catch
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось добавить запись :(')", true);
+            }
+        }
+        //Обновление статуса теста
+        protected void btStatusUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataProcedures procedures = new DataProcedures();
+                getProjectId();
+                procedures.TestStatusUpdate(Convert.ToInt32(TestId), Convert.ToInt32(ProjectId), Convert.ToInt32(ddlStatus.SelectedValue.ToString()));
+                rpDetailsFill(QRdetails);
+            }
+            catch
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось обновить запись :(')", true);
             }
         }
     }

@@ -274,5 +274,16 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Обновление статуса проекта
+        public void TestStatusUpdate(int TestId, int IdProject, int IdStatus)
+        {
+            commandConfig("TestStatusUpdate");
+            command.Parameters.AddWithValue("@TestId", TestId);
+            command.Parameters.AddWithValue("@IdProject", IdProject);
+            command.Parameters.AddWithValue("@IdStatus", IdStatus);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
     }
 }

@@ -42,6 +42,15 @@ namespace TestTracker.Pages.MainProject
         protected global::System.Web.UI.WebControls.SqlDataSource sdsTestStep;
 
         /// <summary>
+        /// sdsStatus элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsStatus;
+
+        /// <summary>
         /// lblTestName элемент управления.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,33 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTestName;
+
+        /// <summary>
+        /// lblStatusID элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatusID;
+
+        /// <summary>
+        /// ddlStatus элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+
+        /// <summary>
+        /// btStatusUpdate элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btStatusUpdate;
 
         /// <summary>
         /// tbDescription элемент управления.

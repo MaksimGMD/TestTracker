@@ -14,7 +14,7 @@ namespace TestTracker.Pages.MainProject
         protected void Page_Load(object sender, EventArgs e)
         {
             string User = HttpContext.Current.User.Identity.Name.ToString();
-            QR = DBConnection.qrProjects + " where [UserLogin] = '" + User + "' or [UserEmail] = '" + User + "'";
+            QR = DBConnection.qrProjects + "where [UserLogin] = '" + User + "' or [UserEmail] = '" + User + "'";
             if (!IsPostBack)
             {
                 rpFill(QR);

@@ -53,7 +53,7 @@ namespace TestTracker
             "[UserSurname] + ' ' + [UserName] + ' ' + [UserMiddleName] as 'Пользователь' from [ProjectUser] " +
             "inner join [User] on [UserId] = [IdUser] " +
             "inner join [Project] on [ProjectID] = [IdProject]",
-            qrTestDetails = "select ProjectName, TestDate, StatusName, TestJiraNumber from [Test] " +
+            qrTestDetails = "select ProjectName, TestDate, IdStatus, StatusName, TestJiraNumber from [Test] " +
             "inner join [Status] on [StatusId] = [IdStatus] " +
             "inner join [Project] on [ProjectId] = [IdProject]",
             qrTestSteps = "select StepId, StepNumber, StepName from [Step]",
