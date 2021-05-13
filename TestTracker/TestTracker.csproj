@@ -1778,6 +1778,7 @@
     <Content Include="Pages\Admin\Tests.aspx" />
     <Content Include="Pages\Admin\Users.aspx" />
     <Content Include="Pages\Admin\Сomments.aspx" />
+    <Content Include="Pages\MainProject\Profile.aspx" />
     <Content Include="Pages\MainProject\Projects.aspx" />
     <Content Include="Pages\MainProject\SharePage.aspx" />
     <Content Include="Pages\MainProject\TestDetails.aspx" />
@@ -2042,6 +2043,13 @@
     </Compile>
     <Compile Include="Pages\MainProject\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainProject\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MainProject\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainProject\Projects.aspx.cs">
       <DependentUpon>Projects.aspx</DependentUpon>

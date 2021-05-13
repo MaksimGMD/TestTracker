@@ -56,7 +56,8 @@ namespace TestTracker
             qrTestDetails = "select ProjectName, TestDate, StatusName, TestJiraNumber from [Test] " +
             "inner join [Status] on [StatusId] = [IdStatus] " +
             "inner join [Project] on [ProjectId] = [IdProject]",
-            qrTestSteps = "select StepId, StepNumber, StepName from [Step]";
+            qrTestSteps = "select StepId, StepNumber, StepName from [Step]",
+            qrProfile = "select [UserId], [UserSurname] + ' ' + [UserName] + ' ' + [UserMiddleName] as 'User', [UserLogin], [UserEmail], [RoleName] from [User] inner join [Role] on [IdRole] = [RoleId]";
 
 
 
