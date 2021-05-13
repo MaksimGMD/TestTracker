@@ -16,12 +16,14 @@ namespace TestTracker.Pages.MainProject
         string QRUsers = ""; //Для списка участников
         string QRdetails = ""; //Подробности о тесте
         string QRSteps = "";
+        string QRComments = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             TestId = Request.QueryString["ID"];
             QRUsers = DBConnection.qrUsersTest;
             QRdetails = DBConnection.qrTestDetails;
             QRSteps = DBConnection.qrTestSteps;
+            QRComments = DBConnection.qrTestComment;
             if (!IsPostBack)
             {
                 if (TestId != null)
@@ -34,6 +36,7 @@ namespace TestTracker.Pages.MainProject
                     DescriptionFill();
                     rpTestStepFill(QRSteps);
                     ddlStatusFill();
+                    rpCommentFill(QRComments);
                 }
                 else
                 {
@@ -165,6 +168,15 @@ namespace TestTracker.Pages.MainProject
             sdsTestStep.DataSourceMode = SqlDataSourceMode.DataReader;
             rpTestStep.DataSource = sdsTestStep;
             rpTestStep.DataBind();
+        }
+        //Заполнение комментарием
+        protected void rpCommentFill(string qr)
+        {
+            sdsComments.ConnectionString = DBConnection.connection.ConnectionString.ToString();
+            sdsComments.SelectCommand = qr + " where IdTest = '" + TestId + "'";
+            sdsComments.DataSourceMode = SqlDataSourceMode.DataReader;
+            rpComments.DataSource = sdsComments;
+            rpComments.DataBind();
         }
         //Изменить описание
         protected void btEditDesc_Click(object sender, EventArgs e)
@@ -320,6 +332,23 @@ namespace TestTracker.Pages.MainProject
             catch
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось обновить запись :(')", true);
+            }
+        }
+        //Добавление комментария
+        protected void btAddComment_Click(object sender, EventArgs e)
+        {
+            DataProcedures procedures = new DataProcedures();
+            DBConnection connection = new DBConnection();
+            try
+            {
+                int UserId = connection.GetUserId(HttpContext.Current.User.Identity.Name.ToString());
+                procedures.CommentInsert(tbComment.Text, DateTime.Now.ToString("dd.MM.yyyy"), UserId, Convert.ToInt32(TestId));
+                Response.Redirect(Request.Url.AbsoluteUri);
+                rpCommentFill(QRComments);
+            }
+            catch
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось добавить запись :(')", true);
             }
         }
     }

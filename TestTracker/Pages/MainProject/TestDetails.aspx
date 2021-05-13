@@ -5,6 +5,7 @@
     <asp:SqlDataSource runat="server" ID="sdsDetails"></asp:SqlDataSource>
     <asp:SqlDataSource runat="server" ID="sdsTestStep"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sdsStatus" runat="server"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sdsComments" runat="server"></asp:SqlDataSource>
     <div class="container-fluid">
         <div class="row mb-3" style="padding-left: 15px; padding-right: 15px">
             <p class="h4">
@@ -65,6 +66,35 @@
                                     <button runat="server" id="btCancelStep" onserverclick="btCancelStep_Click" class="btn-step btn-step-cancel" title="Отмена" causesvalidation="false" visible="false" display="Dynamic"><i class="fas fa-times"></i></button>
                                     <button runat="server" id="btEdit" onserverclick="btEdit_Click" class="btn-step" title="Изменить" causesvalidation="false" display="Dynamic"><i class="fas fa-edit"></i></button>
                                     <button runat="server" id="btDelete" onserverclick="btDelete_Click" class="btn-step btn-step-del" style="margin-left: 10px" title="Удалить" causesvalidation="false"><i class="fas fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="comment-section mt-4">
+                    <p class="section-title">Комментарии </p>
+                    <div class="addcomment-section mb-2" style="max-width: 600px">
+                        <label for="exampleInputEmail1">Добавить комментарий</label>
+                        <asp:TextBox class="form-control" runat="server" ID="tbComment" placeholder="Комментарий" style="margin-bottom: 20px; max-height: 300px; min-height: 39px" MaxLength="500" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                        <div class="row justify-content-end">
+                            <asp:Button runat="server" ID="btAddComment" Text="Добавить" CssClass="btn btn-outline-success mt-2" OnClick="btAddComment_Click" CausesValidation="false"/>
+                        </div>
+                    </div>
+                    <asp:Repeater runat="server" ID="rpComments">
+                        <ItemTemplate>
+                            <div class="d-flex justify-content-center row">
+                                <div class="col-md-12">
+                                    <div class="d-flex flex-column comment-section">
+                                        <div class="bg-white p-2">
+                                            <div class="d-flex flex-row user-info">
+                                                <img class="rounded-circle" src="../../Content/img/hacker.png" width="40">
+                                                <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><%#Eval("User") %></span><span class="date text-black-50"><%#Eval("CommentDate") %></span></div>
+                                            </div>
+                                            <div class="mt-2">
+                                                <p class="comment-text"><%#Eval("CommentContent") %></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </ItemTemplate>

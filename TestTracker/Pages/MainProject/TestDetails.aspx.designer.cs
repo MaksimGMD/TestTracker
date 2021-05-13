@@ -51,6 +51,15 @@ namespace TestTracker.Pages.MainProject
         protected global::System.Web.UI.WebControls.SqlDataSource sdsStatus;
 
         /// <summary>
+        /// sdsComments элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsComments;
+
+        /// <summary>
         /// lblTestName элемент управления.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,33 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpTestStep;
+
+        /// <summary>
+        /// tbComment элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbComment;
+
+        /// <summary>
+        /// btAddComment элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btAddComment;
+
+        /// <summary>
+        /// rpComments элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpComments;
 
         /// <summary>
         /// rpDetails элемент управления.

@@ -12,7 +12,19 @@ namespace TestTracker.Pages.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                DBConnection connection = new DBConnection();
+                string UserId = (HttpContext.Current.User.Identity.Name.ToString());
+                if(connection.UserRole(UserId) == "1")
+                {
 
+                }
+                else
+                {
+                    Response.Redirect("../MainProject/Projects.aspx");
+                }
+            }
         }
 
         protected void btOut_Click(object sender, EventArgs e)

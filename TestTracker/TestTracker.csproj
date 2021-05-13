@@ -1769,6 +1769,7 @@
     <Content Include="Content\fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Content\img\admin-icon.png" />
     <Content Include="Content\img\delete-icon.png" />
+    <Content Include="Content\img\hacker.png" />
     <Content Include="Content\img\logo.svg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />

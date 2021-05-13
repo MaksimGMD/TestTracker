@@ -12,7 +12,16 @@ namespace TestTracker.Pages.MainProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DBConnection connection = new DBConnection();
+            string UserId = (HttpContext.Current.User.Identity.Name.ToString());
+            if (connection.UserRole(UserId) != "1")
+            {
 
+            }
+            else
+            {
+                Response.Redirect("../Admin/Users.aspx");
+            }
         }
 
         protected void btLogout_Click(object sender, EventArgs e)
