@@ -34,9 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Profile.aspx">Профиль <span class="sr-only"></span></a>
                     </li>
-                    <%--<li class="nav-item">
-                        <asp:Button ID="btLogin" CssClass="btn btn-outline-primary" Text="Войти"></asp:Button>
-                    </li>--%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FeedBack.aspx">Обратная связь <span class="sr-only"></span></a>
+                    </li>
                     <li class="nav-item">
                         <asp:Button ID="btLogout" runat="server" CssClass="btn btn-outline-danger" Text="Выйти" OnClick="btLogout_Click" CausesValidation="false"></asp:Button>
                     </li>

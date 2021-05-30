@@ -9,10 +9,10 @@
                 <div class="mail-form" style="margin-bottom: 30px">
                     <div class="row">
                         <div class="col">
-                        <div class="alert alert-success" role="alert" id="alert" runat="server" visible="false" Display="Dynamic">
-                            Ваше сообщение успешно отправленно!
-                        </div>
+                            <div class="alert alert-success" role="alert" id="alert" runat="server" visible="false" display="Dynamic">
+                                Ваше сообщение успешно отправленно!
                             </div>
+                        </div>
                     </div>
                     <div class="row project-title align-items-center" style="padding-left: 15px; padding-right: 15px;">
                         <div class="col-lg-6 align-self-start mt-2 mb-2" style="text-align: start; padding: unset; margin-bottom: unset">
@@ -67,7 +67,7 @@
                         </h6>
                     </div>
                     <div style="overflow-x: auto; width: 100%; overflow-y: auto; max-height: 300px; padding-left: 15px; padding-right: 15px; margin-bottom: 10px; font-size: 10px">
-                        <asp:GridView ID="gvTestsExport" runat="server" CurrentSortDirection="ASC" AutoGenerateColumns="false" Style="vertical-align: middle" >
+                        <asp:GridView ID="gvTestsExport" runat="server" CurrentSortDirection="ASC" AutoGenerateColumns="false" Style="vertical-align: middle">
                             <Columns>
                                 <asp:BoundField DataField="ID теста" HeaderText="ID теста" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" />
                                 <asp:BoundField DataField="Название теста" HeaderText="Название теста" HeaderStyle-HorizontalAlign="Center" />
