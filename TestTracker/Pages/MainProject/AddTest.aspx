@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cpMainContent" runat="server">
     <asp:SqlDataSource runat="server" ID="sdsTestStep"></asp:SqlDataSource>
+    <div class="row mb-2 mt-2" style="padding-left: 35px; padding-right: 15px">
+        <button runat="server" id="btBack" class="btn-back" onserverclick="btBack_Click" causesvalidation="false">Вернуться к тестам <i class="fas fa-reply"></i></button>
+    </div>
     <div class="container">
         <div class="row mb-3 justify-content-around">
             <div class="col-8 p-0">
@@ -9,8 +12,8 @@
                     Новый тест
                 </p>
             </div>
-            <div class="col-4 p-0" style="text-align:end">
-                <button id="btToTest" runat="server" class="btn btn-outline-secondary" onserverclick="btToTest_Click" Display="Dynamic" visible="false" title="Открыть созданный тест" causesvalidation="false">Открыть тест <i class="fas fa-share"></i></button>
+            <div class="col-4 p-0" style="text-align: end">
+                <button id="btToTest" runat="server" class="btn btn-outline-secondary" onserverclick="btToTest_Click" display="Dynamic" visible="false" title="Открыть созданный тест" causesvalidation="false">Открыть тест <i class="fas fa-share"></i></button>
             </div>
         </div>
         <div>

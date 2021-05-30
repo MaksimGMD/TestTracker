@@ -124,8 +124,16 @@ namespace TestTracker.Pages.MainProject
             }
 
         }
+
         public override void VerifyRenderingInServerForm(Control control)
         {
+        }
+
+        //Возвращение к тестам
+        protected void btBack_Click(object sender, EventArgs e)
+        {
+            //Перейти на страницу Tests.aspx с ProjectId в зашифрованном виде
+            Response.Redirect("Tests.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
         }
     }
 }

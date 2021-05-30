@@ -353,5 +353,12 @@ namespace TestTracker.Pages.MainProject
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось добавить запись :(')", true);
             }
         }
+        //Возвращение к тестам
+        protected void btBack_Click(object sender, EventArgs e)
+        {
+            getProjectId();
+            //Перейти на страницу Tests.aspx с ProjectId в зашифрованном виде
+            Response.Redirect("Tests.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
+        }
     }
 }

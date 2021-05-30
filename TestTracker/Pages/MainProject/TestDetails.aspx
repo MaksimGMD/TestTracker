@@ -6,6 +6,9 @@
     <asp:SqlDataSource runat="server" ID="sdsTestStep"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sdsStatus" runat="server"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sdsComments" runat="server"></asp:SqlDataSource>
+    <div class="row mb-2 mt-2" style="padding-left: 35px; padding-right: 15px">
+        <button runat="server" id="btBack" class="btn-back" onserverclick="btBack_Click" causesvalidation="false">Вернуться к тестам <i class="fas fa-reply"></i></button>
+    </div>
     <div class="container-fluid">
         <div class="row mb-3" style="padding-left: 15px; padding-right: 15px">
             <p class="h4">
@@ -75,9 +78,9 @@
                     <p class="section-title">Комментарии </p>
                     <div class="addcomment-section mb-2" style="max-width: 600px">
                         <label for="exampleInputEmail1">Добавить комментарий</label>
-                        <asp:TextBox class="form-control" runat="server" ID="tbComment" placeholder="Комментарий" style="margin-bottom: 20px; max-height: 300px; min-height: 39px" MaxLength="500" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                        <asp:TextBox class="form-control" runat="server" ID="tbComment" placeholder="Комментарий" Style="margin-bottom: 20px; max-height: 300px; min-height: 39px" MaxLength="500" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         <div class="row justify-content-end">
-                            <asp:Button runat="server" ID="btAddComment" Text="Добавить" CssClass="btn btn-outline-success mt-2" OnClick="btAddComment_Click" CausesValidation="false"/>
+                            <asp:Button runat="server" ID="btAddComment" Text="Добавить" CssClass="btn btn-outline-success mt-2" OnClick="btAddComment_Click" CausesValidation="false" />
                         </div>
                     </div>
                     <asp:Repeater runat="server" ID="rpComments">

@@ -60,6 +60,15 @@ namespace TestTracker.Pages.MainProject
         protected global::System.Web.UI.WebControls.SqlDataSource sdsComments;
 
         /// <summary>
+        /// btBack элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btBack;
+
+        /// <summary>
         /// lblTestName элемент управления.
         /// </summary>
         /// <remarks>

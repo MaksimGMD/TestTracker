@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cpMainContent" runat="server">
     <asp:SqlDataSource runat="server" ID="sdsTestsExport"></asp:SqlDataSource>
+    <div class="row mb-2 mt-2" style=""padding-left: 35px; padding-right: 15px">
+            <button runat="server" id="btBack" class="btn-back" onserverclick="btBack_Click" causesvalidation="false">Вернуться к тестам <i class="fas fa-reply"></i></button>
+        </div>
     <div class="container">
         <div class="row" style="padding-left: 15px; padding-right: 15px;">
             <p class="h4">Предварительный просмотр</p>

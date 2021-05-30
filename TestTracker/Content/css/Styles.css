@@ -398,3 +398,14 @@ h6 {
 .textarea {
     resize: none
 }
+
+.btn-back {
+    border: none;
+    background: #fff;
+    color: #6b778c;
+    transition: 0.3s;
+}
+    .btn-back:hover {
+        transition: 0.3s;
+        color: #383838
+    }
