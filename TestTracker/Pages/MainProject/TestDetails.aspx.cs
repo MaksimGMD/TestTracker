@@ -312,7 +312,6 @@ namespace TestTracker.Pages.MainProject
                 Response.Redirect(Request.Url.AbsoluteUri);
                 rpTestStepFill(QRSteps);
                 tbAddStep.Text = string.Empty;
-
             }
             catch
             {
@@ -341,10 +340,13 @@ namespace TestTracker.Pages.MainProject
             DBConnection connection = new DBConnection();
             try
             {
-                int UserId = connection.GetUserId(HttpContext.Current.User.Identity.Name.ToString());
-                procedures.CommentInsert(tbComment.Text, DateTime.Now.ToString("dd.MM.yyyy"), UserId, Convert.ToInt32(TestId));
-                Response.Redirect(Request.Url.AbsoluteUri);
-                rpCommentFill(QRComments);
+                if (tbComment.Text != string.Empty)
+                {
+                    int UserId = connection.GetUserId(HttpContext.Current.User.Identity.Name.ToString());
+                    procedures.CommentInsert(tbComment.Text, DateTime.Now.ToString("dd.MM.yyyy"), UserId, Convert.ToInt32(TestId));
+                    Response.Redirect(Request.Url.AbsoluteUri);
+                    rpCommentFill(QRComments);
+                }
             }
             catch
             {

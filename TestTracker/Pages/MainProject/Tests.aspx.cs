@@ -205,7 +205,8 @@ namespace TestTracker.Pages.MainProject
         //Добавить запись
         protected void btInsert_Click(object sender, EventArgs e)
         {
-
+            DBConnection.TestAddValid = true;
+            Response.Redirect("AddTest.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
         }
         //Поиск
         protected void btSearch_Click(object sender, EventArgs e)

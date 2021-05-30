@@ -46,69 +46,67 @@ namespace TestTracker.Pages.MainProject
         {
             tbMessage.Text = string.Empty;
             cbUsers.SelectedIndex = -1;
-            alert.Visible = true;
             lblError.Visible = false;
         }
         //Отправка письма
         protected void btSent_Click(object sender, EventArgs e)
         {
             Project_Data(); //Получение названия и версии проекта
-            //Отправка сообщения на почту
-            try
+                            //Отправка сообщения на почту
+            int port = 587;
+            bool enableSSL = true;
+            string emailFrom = "test_tracker@bk.ru"; //почта отправителя
+            string password = "Bot7890!"; //пароль оправителя
+            string subject = "Отчёт " + ProjectName + " v" + ProjectVersion; //Заголовок сообщения
+            string smtpAddress = "smtp.mail.ru"; //smtp протокол
+            string message = tbMessage.Text; //Сообщение
+
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(emailFrom);
+            //Добавление получателей письма на основе списка
+            if (cbUsers.SelectedIndex == -1)
             {
-                int port = 587;
-                bool enableSSL = true;
-                string emailFrom = "test_tracker@bk.ru"; //почта отправителя
-                string password = "Bot7890!"; //пароль оправителя
-                string subject = "Отчёт " + ProjectName + " v" + ProjectVersion; //Заголовок сообщения
-                string smtpAddress = "smtp.mail.ru"; //smtp протокол
-                string message = tbMessage.Text; //Сообщение
-
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(emailFrom);
-                //Добавление получателей письма на основе списка
-                if (cbUsers.SelectedIndex == -1)
+                lblError.Visible = true;
+            }
+            else
+            {
+                foreach (ListItem li in cbUsers.Items)
                 {
-                    lblError.Visible = true;
-                }
-                else
-                {
-                    foreach (ListItem li in cbUsers.Items)
+                    if (li.Selected)
                     {
-                        if (li.Selected)
-                        {
-                            mail.To.Add(li.Text);
-                        }
+                        mail.To.Add(li.Text);
                     }
-                    mail.Subject = subject;
-                    mail.Body = message; //тело сообщения
-                    mail.IsBodyHtml = false;
-
-                    MemoryStream str = Create_Excel_File();
-                    Attachment at = new Attachment(str, "Отчёт " + ProjectName + " v" + ProjectVersion + ".xls");
-                    mail.Attachments.Add(at);
+                }
+                mail.Subject = subject;
+                mail.Body = message; //тело сообщения
+                mail.IsBodyHtml = false;
+                Attachment file = new Attachment(Create_Excel_File(), "Отчёт " + ProjectName + " v" + ProjectVersion + ".xls");
+                mail.Attachments.Add(file);
+                try
+                {
                     using (SmtpClient smtp = new SmtpClient(smtpAddress, port))
                     {
                         smtp.Credentials = new NetworkCredential(emailFrom, password);
                         smtp.EnableSsl = enableSSL;
                         smtp.Send(mail);
                     }
+                    alert.Visible = true;
                 }
-            }
-            catch
-            {
-                alert.Visible = false;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось отправить сообщение :(')", true);
-            }
-            finally
-            {
-                Cleaner();
+                catch
+                {
+                    alert.Visible = false;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось отправить сообщение :(')", true);
+                }
+                finally
+                {
+                    Cleaner();
+                }
             }
         }
         //Экспорт
         protected MemoryStream Create_Excel_File()
         {
-            Response.AppendHeader("content-disposition", "attachment; filename=Отчёт " + ProjectName + " v" + ProjectVersion + ".xls");
+            Response.AppendHeader("content-disposition", "attachment; filename=Отчёт по проекту " + ProjectName + " v" + ProjectVersion + ".xls");
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter stringWriter = new StringWriter();
             HtmlTextWriter htmlTextWriter = new HtmlTextWriter(stringWriter);
@@ -198,9 +196,9 @@ namespace TestTracker.Pages.MainProject
                 DBConnection.connection.Close();
             }
         }
-        //public override void VerifyRenderingInServerForm(Control control)
-        //{
-        //}
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+        }
         //Выбор в получателя
         protected void cbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {

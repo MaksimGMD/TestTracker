@@ -21,6 +21,7 @@
             <a class="navbar-brand" href="Projects.aspx">
                 <img src="../../Content/img/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Test tracker">
                 Test tracker
+                <small class="text-muted" style="font-size: 75%">v0.13.3</small>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,7 @@
                         <asp:Button ID="btLogin" CssClass="btn btn-outline-primary" Text="Войти"></asp:Button>
                     </li>--%>
                     <li class="nav-item">
-                        <asp:Button ID="btLogout" runat="server" CssClass="btn btn-outline-danger" Text="Выйти" OnClick="btLogout_Click"></asp:Button>
+                        <asp:Button ID="btLogout" runat="server" CssClass="btn btn-outline-danger" Text="Выйти" OnClick="btLogout_Click" CausesValidation="false"></asp:Button>
                     </li>
                 </ul>
             </div>

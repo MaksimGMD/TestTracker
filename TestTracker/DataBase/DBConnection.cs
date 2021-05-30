@@ -64,6 +64,8 @@ namespace TestTracker
 
         private SqlCommand command = new SqlCommand("", connection);
         public static int IdRecord; //Выбранная запись
+        public static string LastId; //Последняя запись в таблицу
+        public static bool TestAddValid = false; //доступность страницы добавления нового теста
         /// <summary>
         /// Роль пользователя
         /// </summary>
@@ -156,6 +158,26 @@ namespace TestTracker
             catch
             {
                 return Convert.ToInt32(command.ExecuteScalar().ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public string GetLastId(string IdProject)
+        {
+            try
+            {
+                command.CommandText = "SELECT isnull(max(TestId), 0) from[Test] where IdProject like '%" + IdProject + "%'";
+                connection.Open();
+                LastId = command.ExecuteScalar().ToString();
+                return LastId;
+            }
+            catch
+            {
+                LastId = "0";
+                return LastId;
             }
             finally
             {
