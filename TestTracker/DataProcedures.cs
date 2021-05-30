@@ -263,6 +263,17 @@ namespace TestTracker
             command.ExecuteNonQuery();
             DBConnection.connection.Close();
         }
+        //Обновление результата теста
+        public void TestResultUpdate(int TestId, int IdProject, string TestResult)
+        {
+            commandConfig("TestResultUpdate");
+            command.Parameters.AddWithValue("@TestId", TestId);
+            command.Parameters.AddWithValue("@IdProject", IdProject);
+            command.Parameters.AddWithValue("@TestResult", TestResult);
+            DBConnection.connection.Open();
+            command.ExecuteNonQuery();
+            DBConnection.connection.Close();
+        }
 
         //Добавление этапа тестирования на стороне пользователя
         public void StepUserInsert(string StepName, int IdTest)

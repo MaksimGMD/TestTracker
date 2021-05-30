@@ -194,6 +194,8 @@ namespace TestTracker.Pages.MainProject
         protected void btBack_Click(object sender, EventArgs e)
         {
             //Перейти на страницу Tests.aspx с ProjectId в зашифрованном виде
+            DBConnection.LastId = "0";
+            DBConnection.TestAddValid = false;
             Response.Redirect("Tests.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
         }
     }

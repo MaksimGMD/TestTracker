@@ -34,9 +34,18 @@ namespace TestTracker.Pages.MainProject
                     rpUsersFill(QRUsers);
                     rpDetailsFill(QRdetails);
                     DescriptionFill();
+                    ResultFill();
                     rpTestStepFill(QRSteps);
                     ddlStatusFill();
                     rpCommentFill(QRComments);
+                    if(ddlStatus.SelectedValue == "4")
+                    {
+                        dvResultSection.Visible = false;
+                    }
+                    else
+                    {
+                        dvResultSection.Visible = true;
+                    }
                 }
                 else
                 {
@@ -121,6 +130,28 @@ namespace TestTracker.Pages.MainProject
             catch
             {
                 tbDescription.Text = "";
+            }
+            finally
+            {
+                DBConnection.connection.Close();
+            }
+        }
+        //Заполнение поля с результатом
+        private void ResultFill()
+        {
+
+            SqlCommand command = new SqlCommand("", DBConnection.connection);
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "select [TestResult] from [Test] where [TestId] = '" + TestId + "'";
+            try
+            {
+                DBConnection.connection.Open();
+                tbResult.Text = command.ExecuteScalar().ToString();
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                tbResult.Text = "";
             }
             finally
             {
@@ -327,6 +358,14 @@ namespace TestTracker.Pages.MainProject
                 getProjectId();
                 procedures.TestStatusUpdate(Convert.ToInt32(TestId), Convert.ToInt32(ProjectId), Convert.ToInt32(ddlStatus.SelectedValue.ToString()));
                 rpDetailsFill(QRdetails);
+                if(ddlStatus.SelectedValue != "4")
+                {
+                    dvResultSection.Visible = true;
+                }
+                else
+                {
+                    dvResultSection.Visible = false;
+                }
             }
             catch
             {
@@ -359,6 +398,45 @@ namespace TestTracker.Pages.MainProject
             getProjectId();
             //Перейти на страницу Tests.aspx с ProjectId в зашифрованном виде
             Response.Redirect("Tests.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
+        }
+        //Изменить результат
+        protected void btEditResult_Click(object sender, EventArgs e)
+        {
+            tbResult.ReadOnly = false;
+            btCancelResult.Visible = true;
+            btSaveResult.Visible = true;
+            btEditResult.Visible = false;
+
+        }
+        //Отменить изменение результата
+        protected void btCancelResult_Click(object sender, EventArgs e)
+        {
+
+            tbResult.ReadOnly = true;
+            btCancelResult.Visible = false;
+            btSaveResult.Visible = false;
+            btEditResult.Visible = true;
+            ResultFill();
+            lblResultError.Visible = false;
+        }
+        //Сохранить изменения результата
+        protected void btSaveResult_Click(object sender, EventArgs e)
+        {
+            if (tbResult.Text != "")
+            {
+                getProjectId();
+                DataProcedures procedures = new DataProcedures();
+                procedures.TestResultUpdate(Convert.ToInt32(TestId), Convert.ToInt32(ProjectId), tbResult.Text);
+                ResultFill();
+                tbResult.ReadOnly = true;
+                btCancelResult.Visible = false;
+                btSaveResult.Visible = false;
+                btEditResult.Visible = true;
+                ResultFill();
+                lblResultError.Visible = false;
+            }
+            else
+                lblResultError.Visible = true;
         }
     }
 }

@@ -40,6 +40,20 @@
                         <asp:Button runat="server" ID="btCancel" Text="Отменить" CssClass="btn btn btn-secondary" OnClick="btCancel_Click" display="Dynamic" Visible="false" CausesValidation="false" />
                         <asp:Button runat="server" ID="btSaveDesc" Text="Сохранить" CssClass="btn btn btn-success" OnClick="btSaveDesc_Click" Style="margin-left: 10px" display="Dynamic" Visible="false" CausesValidation="false" />
                     </div>
+                    <div runat="server" id="dvResultSection" display="Dynamic" visible="false">
+                        <p class="section-title">Результат</p>
+                        <div class="form-group" style="margin-bottom: 10px">
+                            <asp:TextBox runat="server" ID="tbResult" CssClass="form-control" placeholder="Результат теста" TextMode="MultiLine" MaxLength="500"
+                                Style="max-height: 300px; min-height: 39px; background: #fff" Rows="3" ReadOnly="true"></asp:TextBox>
+                            <br />
+                            <asp:Label runat="server" ID="lblResultError" Text="Введите результат" Visible="false" display="Dynamic" CssClass="Error"></asp:Label>
+                        </div>
+                        <div class="row justify-content-end">
+                            <asp:Button runat="server" ID="btEditResult" Text="Изменить" CssClass="btn btn-outline-success" display="Dynamic" CausesValidation="false" OnClick="btEditResult_Click" />
+                            <asp:Button runat="server" ID="btCancelResult" Text="Отменить" CssClass="btn btn btn-secondary" display="Dynamic" Visible="false" CausesValidation="false" OnClick="btCancelResult_Click" />
+                            <asp:Button runat="server" ID="btSaveResult" Text="Сохранить" CssClass="btn btn btn-success" Style="margin-left: 10px" display="Dynamic" Visible="false" CausesValidation="false" OnClick="btSaveResult_Click" />
+                        </div>
+                    </div>
                 </div>
                 <div class="section-tests">
                     <p class="section-title">Этапы тестирования</p>
@@ -75,9 +89,9 @@
                     </asp:Repeater>
                 </div>
                 <div class="comment-section mt-4">
-                    <p class="section-title">Комментарии </p>
+                    <p class="section-title">Комментарии или замечание</p>
                     <div class="addcomment-section mb-2" style="max-width: 600px">
-                        <label for="exampleInputEmail1">Добавить комментарий</label>
+                        <label for="exampleInputEmail1">Добавить комментарий или замечание</label>
                         <asp:TextBox class="form-control" runat="server" ID="tbComment" placeholder="Комментарий" Style="margin-bottom: 20px; max-height: 300px; min-height: 39px" MaxLength="500" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         <div class="row justify-content-end">
                             <asp:Button runat="server" ID="btAddComment" Text="Добавить" CssClass="btn btn-outline-success mt-2" OnClick="btAddComment_Click" CausesValidation="false" />
@@ -136,7 +150,6 @@
                         </asp:Repeater>
                     </ul>
                 </div>
-
             </div>
         </div>
     </div>
