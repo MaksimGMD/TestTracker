@@ -165,7 +165,7 @@ namespace TestTracker.Pages.MainProject
             btToTest.Visible = true;
 
         }
-        //Сохранить данные
+        //Сохранить данные о тесте
         protected void btSave_Click(object sender, EventArgs e)
         {
             DataProcedures procedures = new DataProcedures();
@@ -174,6 +174,7 @@ namespace TestTracker.Pages.MainProject
             {
                 procedures.TestInsert(tbTestName.Text, tbDescription.Text, DateTime.Now.ToString("dd.MM.yyyy"), string.Empty, tbJira.Text, false, 4, Convert.ToInt32(ProjectId));
                 connection.GetLastId(ProjectId);
+                rpTestStepFill(QRSteps);
                 dvStepSection.Visible = true;
                 btToTest.Visible = true;
             }

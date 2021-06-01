@@ -93,7 +93,7 @@
             </button>
             <asp:Label ID="lblSelectedRow" runat="server" Style="font-weight: 500"></asp:Label>
         </div>
-        <div class="table" style="overflow-x: auto; width: 100%; text-align: center">
+        <div class="table" style="overflow-x: auto; width: 100%; text-align: center; max-height: 600px; overflow-x: auto">
             <asp:GridView ID="gvTests" runat="server" AllowSorting="true"
                 CssClass="table table-condensed table-hover" UseAccessibleHeader="true" CurrentSortDirection="ASC" Font-Size="14px"
                 AlternatingRowStyle-Wrap="false" HeaderStyle-HorizontalAlign="Center" OnRowDataBound="gvTests_RowDataBound" OnRowDeleting="gvTests_RowDeleting" OnSelectedIndexChanged="gvTests_SelectedIndexChanged" OnSorting="gvTests_Sorting">

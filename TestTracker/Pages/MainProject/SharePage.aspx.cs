@@ -48,61 +48,7 @@ namespace TestTracker.Pages.MainProject
             cbUsers.SelectedIndex = -1;
             lblError.Visible = false;
         }
-        //Отправка письма
-        protected void btSent_Click(object sender, EventArgs e)
-        {
-            Project_Data(); //Получение названия и версии проекта
-                            //Отправка сообщения на почту
-            int port = 587;
-            bool enableSSL = true;
-            string emailFrom = "test_tracker@bk.ru"; //почта отправителя
-            string password = "Bot7890!"; //пароль оправителя
-            string subject = "Отчёт " + ProjectName + " v" + ProjectVersion; //Заголовок сообщения
-            string smtpAddress = "smtp.mail.ru"; //smtp протокол
-            string message = tbMessage.Text; //Сообщение
 
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress(emailFrom);
-            //Добавление получателей письма на основе списка
-            if (cbUsers.SelectedIndex == -1)
-            {
-                lblError.Visible = true;
-            }
-            else
-            {
-                foreach (ListItem li in cbUsers.Items)
-                {
-                    if (li.Selected)
-                    {
-                        mail.To.Add(li.Text);
-                    }
-                }
-                mail.Subject = subject;
-                mail.Body = message; //тело сообщения
-                mail.IsBodyHtml = false;
-                Attachment file = new Attachment(Create_Excel_File(), "Отчёт " + ProjectName + " v" + ProjectVersion + ".xls");
-                mail.Attachments.Add(file);
-                try
-                {
-                    using (SmtpClient smtp = new SmtpClient(smtpAddress, port))
-                    {
-                        smtp.Credentials = new NetworkCredential(emailFrom, password);
-                        smtp.EnableSsl = enableSSL;
-                        smtp.Send(mail);
-                    }
-                    alert.Visible = true;
-                }
-                catch
-                {
-                    alert.Visible = false;
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось отправить сообщение :(')", true);
-                }
-                finally
-                {
-                    Cleaner();
-                }
-            }
-        }
         //Экспорт
         protected MemoryStream Create_Excel_File()
         {
@@ -130,7 +76,7 @@ namespace TestTracker.Pages.MainProject
             gvTestsExport.DataSource = sdsTestsExport;
             gvTestsExport.DataBind();
         }
-
+        //Заполнение списка получателей
         private void cbUsersFill()
         {
             sdsUsers.ConnectionString = DBConnection.connection.ConnectionString.ToString();
@@ -148,6 +94,8 @@ namespace TestTracker.Pages.MainProject
             string StartDate = theDate1.ToString("dd.MM.yyyy");
             DateTime theDate2 = DateTime.ParseExact(tbEnd.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
             string EndDate = theDate2.ToString("dd.MM.yyyy");
+            lblStart.Text = StartDate;
+            lblEnd.Text = EndDate;
             string newData = QR + "and [Дата] BETWEEN '" + StartDate + "' AND '" + EndDate + "'";
             gvTestExportFill(newData);
             btCancel.Visible = true;
@@ -159,6 +107,8 @@ namespace TestTracker.Pages.MainProject
             tbEnd.Text = string.Empty;
             tbStart.Text = string.Empty;
             btCancel.Visible = false;
+            lblStart.Text = "";
+            lblEnd.Text = "";
         }
         protected void Project_Data()
         {
@@ -199,11 +149,7 @@ namespace TestTracker.Pages.MainProject
         public override void VerifyRenderingInServerForm(Control control)
         {
         }
-        //Выбор в получателя
-        protected void cbUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
         //Получение данных для таблицы
         private DataTable GetData()
         {
@@ -212,84 +158,126 @@ namespace TestTracker.Pages.MainProject
             "TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False";
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("select DISTINCT * from [TestExport] where [IdProject] = '" + ProjectId + "'"))
+                if(lblStart.Text != "" & lblStart.Text !="")
                 {
-                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    using (SqlCommand cmd = new SqlCommand("select DISTINCT [ID теста], [Название теста], [Описание], [Сценарий тестирования], [Результат], " +
+                        "[Дата], [Статус], [Комментарий], [Номер задачи]  from [TestExport] where [IdProject] = '" + ProjectId + "' " +
+                                        "and [Дата] BETWEEN '" + lblStart.Text + "' AND '" + lblEnd.Text + "'"))
                     {
-                        cmd.Connection = con;
-                        sda.SelectCommand = cmd;
-                        using (DataTable dt = new DataTable())
+                        using (SqlDataAdapter sda = new SqlDataAdapter())
                         {
-                            sda.Fill(dt);
-                            return dt;
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                return dt;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (SqlCommand cmd = new SqlCommand("select DISTINCT [ID теста], [Название теста], [Описание], [Сценарий тестирования], [Результат], " +
+                        "[Дата], [Статус], [Комментарий], [Номер задачи] from [TestExport] where [IdProject] = '" + ProjectId + "'"))
+                    {
+                        using (SqlDataAdapter sda = new SqlDataAdapter())
+                        {
+                            cmd.Connection = con;
+                            sda.SelectCommand = cmd;
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                return dt;
+                            }
                         }
                     }
                 }
             }
         }
         //Отправка письма
-        //protected void btSent_Click(object sender, EventArgs e)
-        //{
-        //    bool enableSSL = true;
-        //    string emailFrom = "test_tracker@bk.ru"; //почта отправителя
-        //    string password = "Bot7890!"; //пароль оправителя
-        //    /*string emailTo = "i_m.d.gritsuk@mpt.ru"; //Почта получателя
-        //    string subject = "Отчёт " + ProjectName + " v" + ProjectVersion; //Заголовок сообщения
-        //    string smtpAddress = "smtp.mail.ru"; //smtp протокол
-        //    /*string tittle = ddlTittle.SelectedValue.ToString();*/ //Заголовок сообщения;
-        //                                                            //string name = "от: " + tbName.Text.ToString() + " почта: " + tbmail.Text;
-        //    string message = tbMessage.Text; //Сообщение
-        //    //Get the GridView Data from database.
-        //    DataTable dt = GetData();
+        protected void btSent_Click(object sender, EventArgs e)
+        {
+            Project_Data(); // Получение названия и версии проекта
+                            //Получает данные для таблицы из БД
+            DataTable dt = GetData();
+            dt.TableName = "Отчёт";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                var wsDep = wb.Worksheets.Add(dt);
+                wsDep.Columns("A", "J").AdjustToContents();
+                for (int i = 1; i <= dt.Rows.Count + 1; i++)
+                {
+                    for (int j = 1; j <= dt.Columns.Count; j++)
+                    {
+                        wsDep.Cell(i, j).Style.Alignment.SetVertical(XLAlignmentVerticalValues.Center);
+                        wsDep.Cell(i, j).Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+                    }
+                }
+                wsDep.Column("A").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                wsDep.Column("F").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                wsDep.Column("G").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                wsDep.Column("I").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                Project_Data(); //Получение названия и версии проекта
+                                //Отправка сообщения на почту
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    //Save the Excel Workbook to MemoryStream.
+                    wb.SaveAs(memoryStream);
 
-        //    //Set DataTable Name which will be the name of Excel Sheet.
-        //    dt.TableName = "GridView_Data";
+                    //Convert MemoryStream to Byte array.
+                    byte[] bytes = memoryStream.ToArray();
+                    memoryStream.Close();
+                    int port = 587;
+                    bool enableSSL = true;
+                    string emailFrom = "bot.feedback@bk.ru"; //почта отправителя
+                    string password = "Privet@12345"; //пароль оправителя
+                    string subject = "Отчёт " + ProjectName + " v" + ProjectVersion; //Заголовок сообщения
+                    string smtpAddress = "smtp.mail.ru"; //smtp протокол
+                    string message = tbMessage.Text; //Сообщение
 
-        //    //Create a New Workbook.
-        //    using (XLWorkbook wb = new XLWorkbook())
-        //    {
-        //        //Add the DataTable as Excel Worksheet.
-        //        wb.Worksheets.Add(dt);
-
-        //        using (MemoryStream memoryStream = new MemoryStream())
-        //        {
-        //            //Save the Excel Workbook to MemoryStream.
-        //            wb.SaveAs(memoryStream);
-
-        //            //Convert MemoryStream to Byte array.
-        //            byte[] bytes = memoryStream.ToArray();
-        //            memoryStream.Close();
-
-        //            //Send Email with Excel attachment.
-        //            using (MailMessage mail = new MailMessage())
-        //            {
-        //                foreach (ListItem li in cbUsers.Items)
-        //                {
-        //                    if (li.Selected)
-        //                    {
-        //                        mail.To.Add(li.Text);
-        //                    }
-        //                }
-        //                mail.From = new MailAddress(emailFrom);
-        //                mail.Subject = "Отчёт " + ProjectName + " v" + ProjectVersion;
-        //                mail.Body = "GridView Exported Excel Attachment";
-        //                //Add Byte array as Attachment.
-        //                mail.Attachments.Add(new Attachment(new MemoryStream(bytes), "GridView.xlsx"));
-        //                mail.IsBodyHtml = true;
-        //                SmtpClient smtp = new SmtpClient();
-        //                smtp.Host = "smtp.mail.ru";
-        //                smtp.EnableSsl = true;
-        //                NetworkCredential credentials = new NetworkCredential();
-        //                credentials.UserName = emailFrom;
-        //                credentials.Password = password;
-        //                smtp.UseDefaultCredentials = true;
-        //                smtp.Credentials = credentials;
-        //                smtp.Port = 587;
-        //                smtp.Send(mail);
-        //            }
-        //        }
-        //    }
-        //}
+                    MailMessage mail = new MailMessage();
+                    mail.From = new MailAddress(emailFrom);
+                    //прикрепление файла к письму
+                    mail.Attachments.Add(new Attachment(new MemoryStream(bytes), "Отчёт " + ProjectName + " v" + ProjectVersion + ".xls"));
+                    mail.IsBodyHtml = true;
+                    //Добавление получателей письма на основе списка
+                    if (cbUsers.SelectedIndex == -1)
+                    {
+                        lblError.Visible = true;
+                    }
+                    else
+                    {
+                        foreach (ListItem li in cbUsers.Items)
+                        {
+                            if (li.Selected)
+                            {
+                                mail.To.Add(li.Text);
+                            }
+                        }
+                        mail.Subject = subject;
+                        mail.Body = message; //тело сообщения
+                        mail.IsBodyHtml = false;
+                        try
+                        {
+                            using (SmtpClient smtp = new SmtpClient(smtpAddress, port))
+                            {
+                                smtp.Credentials = new NetworkCredential(emailFrom, password);
+                                smtp.EnableSsl = enableSSL;
+                                smtp.Send(mail);
+                            }
+                            alert.Visible = true;
+                            Cleaner();
+                        }
+                        catch
+                        {
+                            alert.Visible = false;
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось отправить сообщение :(')", true);
+                        }
+                    }
+                }
+            }
+        }
 
         //Возвращение к тестам
         protected void btBack_Click(object sender, EventArgs e)

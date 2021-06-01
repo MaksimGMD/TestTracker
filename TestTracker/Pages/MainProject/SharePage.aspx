@@ -36,7 +36,7 @@
                     <div style="padding-left: 15px; padding-right: 15px">
                         <label style="color: #212529; font-size: 1rem; font-weight: 400; text-align: left">Кому</label>
                         <br />
-                        <asp:CheckBoxList ID="cbUsers" runat="server" CssClass="users-section" OnSelectedIndexChanged="cbUsers_SelectedIndexChanged">
+                        <asp:CheckBoxList ID="cbUsers" runat="server" CssClass="users-section">
                         </asp:CheckBoxList>
                         <br />
                         <asp:Label ID="lblError" runat="server" Text="Выберите получателя письма" Visible="false" Display="Dynamic" CssClass="Error"></asp:Label>
@@ -62,6 +62,8 @@
                         <button runat="server" id="btCancel" class="btn btn-secondary" onserverclick="btCancel_Click" title="Отменить фильтрацию" visible="false" display="Dynamic" causesvalidation="False">Отменить</button>
                         <button runat="server" id="btFilter" class="btn btn-primary" onserverclick="btFilter_Click" title="Применить фильтр" style="margin-left: 20px">Применить</button>
                     </div>
+                    <asp:Label ID="lblStart" runat="server" Text="" visible="false" display="Dynamic"></asp:Label>
+                    <asp:Label ID="lblEnd" runat="server" Text="" visible="false" display="Dynamic"></asp:Label>
                     <div class="row" style="padding-left: 15px; padding-right: 15px">
                         <h6 style="color: #6c757d">
                             <asp:Label runat="server" ID="lblTitleExample"></asp:Label>
