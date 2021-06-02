@@ -62,7 +62,7 @@
         <div class="grid-section">
             <div class="grid-header">
                 <div class="row" style="padding: 10px">
-                    <div class="col-lg-6 mt-2">
+                    <div class="col-lg-5 mt-2">
                         <div class="input-group">
                             <asp:TextBox type="text" class="form-control" placeholder="Поиск" runat="server" ID="tbSearch"></asp:TextBox>
                             <div class="input-group-append">
@@ -76,7 +76,38 @@
                             <asp:Button runat="server" ID="btCancel" Text="Отмена" CssClass="btn btn-primary" Style="margin-left: 10px" Visible="false" display="Dynamic" title="Отменить поиск и фльтрацию" OnClick="btCancel_Click" />
                         </div>
                     </div>
-                    <div class="col-lg-6 align-self-end mt-2" style="text-align: end">
+                    <div class="col-lg-3 mt-2">
+                        <div class="dropdown">
+                            <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%">Фильтр по датам
+                            </a>
+                            <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuLink" style="width: 100%">
+                                <div>
+                                    <div class="form-group" Style="margin-top: 10px">
+                                        <label for="tbStartDate">Дата начала</label>
+                                        <asp:TextBox runat="server" ID="tbStartDate" TextMode="Date" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group" Style="margin-top: 10px">
+                                        <label for="tbEndDate">Дата окончания</label>
+                                        <asp:TextBox runat="server" ID="tbEndDate" TextMode="Date" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <div style="text-align: end; margin-top: 10px">
+                                         <asp:Button runat="server" ID="btDateFilterCancel" Text="Отменить" CssClass="btn btn-secondary mt-1" OnClick="btDateFilterCancel_Click" />
+                                        <asp:Button runat="server" ID="btDateFilter" Text="Применить" CssClass="btn btn-primary mt-1" OnClick="btDateFilter_Click" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mt-2">
+                        <asp:DropDownList runat="server" ID="ddlStatus" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                            <asp:ListItem Selected="True">Статус</asp:ListItem>
+                            <asp:ListItem>Успешно</asp:ListItem>
+                            <asp:ListItem>Замечание</asp:ListItem>
+                            <asp:ListItem>Не успешно</asp:ListItem>
+                            <asp:ListItem>Не проводился</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-lg-2 align-self-end mt-2" style="text-align: end">
                         <button class="btn btn-success" id="btInsert" runat="server" onserverclick="btInsert_Click"><i class="fas fa-plus" title="Добавить тест"></i>Добавить</button>
                     </div>
                 </div>

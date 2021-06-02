@@ -90,7 +90,7 @@ namespace TestTracker.Pages.MainProject
             string StartDate = theDate1.ToString("dd.MM.yyyy");
             DateTime theDate2 = DateTime.ParseExact(tbEnd.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
             string EndDate = theDate2.ToString("dd.MM.yyyy");
-            string newData = QR + "and [Дата] BETWEEN '" + StartDate + "' AND '" + EndDate + "'";
+            string newData = QR + "and parse([Дата] as date using 'ru-RU') >= '" + StartDate + "' and parse([Дата] as date using 'ru-RU') <= '" + EndDate + "'"; 
             gvTestExportFill(newData);
             btCancel.Visible = true;
         }

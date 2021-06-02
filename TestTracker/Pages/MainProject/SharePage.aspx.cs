@@ -96,7 +96,7 @@ namespace TestTracker.Pages.MainProject
             string EndDate = theDate2.ToString("dd.MM.yyyy");
             lblStart.Text = StartDate;
             lblEnd.Text = EndDate;
-            string newData = QR + "and [Дата] BETWEEN '" + StartDate + "' AND '" + EndDate + "'";
+            string newData = QR + "and parse([Дата] as date using 'ru-RU') >= '" + lblStart.Text + "' and parse([Дата] as date using 'ru-RU') <= '" + lblEnd.Text + "'";
             gvTestExportFill(newData);
             btCancel.Visible = true;
         }
@@ -162,7 +162,7 @@ namespace TestTracker.Pages.MainProject
                 {
                     using (SqlCommand cmd = new SqlCommand("select DISTINCT [ID теста], [Название теста], [Описание], [Сценарий тестирования], [Результат], " +
                         "[Дата], [Статус], [Комментарий], [Номер задачи]  from [TestExport] where [IdProject] = '" + ProjectId + "' " +
-                                        "and [Дата] BETWEEN '" + lblStart.Text + "' AND '" + lblEnd.Text + "'"))
+                                        "and parse([Дата] as date using 'ru-RU') >= '" + lblStart.Text + "' and parse([Дата] as date using 'ru-RU') <= '" + lblEnd.Text + "'"))
                     {
                         using (SqlDataAdapter sda = new SqlDataAdapter())
                         {

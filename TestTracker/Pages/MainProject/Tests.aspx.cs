@@ -14,6 +14,7 @@ namespace TestTracker.Pages.MainProject
     {
         private string QRrp = "";
         private string QR = "";
+        private string QRFilter;
         string ProjectId;
         string ProjectName;
         string ProjectVersion;
@@ -249,6 +250,9 @@ namespace TestTracker.Pages.MainProject
                 rpFill(QRrp);
                 gvFill(newQR);
                 btCancel.Visible = true;
+                tbStartDate.Text = string.Empty;
+                tbEndDate.Text = string.Empty;
+                ddlStatus.SelectedIndex = 0;
 
             }
         }
@@ -263,6 +267,66 @@ namespace TestTracker.Pages.MainProject
         {
 
             Response.Redirect("SharePage.aspx?ProjectID=" + Server.UrlEncode(ProjectId));
+        }
+        //Применить фильтр по датам
+        protected void btDateFilter_Click(object sender, EventArgs e)
+        {
+            DateTime theDate1 = DateTime.ParseExact(tbStartDate.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            string StartDate = theDate1.ToString("dd.MM.yyyy");
+            DateTime theDate2 = DateTime.ParseExact(tbEndDate.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            string EndDate = theDate2.ToString("dd.MM.yyyy");
+            string newData = QR + "and parse([TestDate] as date using 'ru-RU') >= '" + StartDate + "' and parse([TestDate] as date using 'ru-RU') <= '" + EndDate + "'";
+            QRFilter = QRFilter+newData;
+            gvFill(newData);
+            btCancel.Visible = false;
+            ddlStatus.SelectedIndex = 0;
+            tbSearch.Text = string.Empty;
+        }
+        //Отменить фильтр по датам
+        protected void btDateFilterCancel_Click(object sender, EventArgs e)
+        {
+            gvFill(QR);
+            tbStartDate.Text = string.Empty;
+            tbEndDate.Text = string.Empty;
+            btCancel.Visible = false;
+            ddlStatus.SelectedIndex = 0;
+        }
+        //Выбор статуса теста
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newQR;
+            tbStartDate.Text = string.Empty;
+            tbEndDate.Text = string.Empty;
+            btCancel.Visible = false;
+            tbSearch.Text = string.Empty;
+            btCancel.Visible = false;
+            switch (ddlStatus.SelectedValue)
+            {
+                case("Статус"):
+                    QRFilter = QR;
+                    gvFill(QR);
+                    break;
+                case ("Успешно"):
+                    newQR = QR + "and [StatusName] = '" + ddlStatus.SelectedValue + "'";
+                    QRFilter = newQR;
+                    gvFill(QRFilter);
+                    break;
+                case ("Замечание"):
+                    newQR = QR + "and [StatusName] = '" + ddlStatus.SelectedValue + "'";
+                    QRFilter = newQR;
+                    gvFill(QRFilter);
+                    break;
+                case ("Не успешно"):
+                    newQR = QR + "and [StatusName] = '" + ddlStatus.SelectedValue + "'";
+                    QRFilter = newQR;
+                    gvFill(QRFilter);
+                    break;
+                case ("Не проводился"):
+                    newQR = QR + "and [StatusName] = '" + ddlStatus.SelectedValue + "'";
+                    QRFilter = newQR;
+                    gvFill(QRFilter);
+                    break;
+            }
         }
     }
 }

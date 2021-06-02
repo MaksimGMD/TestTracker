@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="../../Content/bootstrap.min.css" />
     <link rel="stylesheet" href="../../Content/css/Styles.css" />
     <link rel="stylesheet" href="../../Content/fontawesome/css/all.min.css" />
-    <script type="text/javascript" src="../../Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../../Scripts/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="../../Scripts/popper-utils.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/popper.min.js"></script>
     <title></title>
 </head>
 <body>
