@@ -10,10 +10,12 @@
         <button runat="server" id="btBack" class="btn-back" onserverclick="btBack_Click" causesvalidation="false">Вернуться к тестам <i class="fas fa-reply"></i></button>
     </div>
     <div class="container-fluid">
-        <div class="row mb-3" style="padding-left: 15px; padding-right: 15px">
-            <p class="h4">
-                <asp:Label runat="server" ID="lblTestName"></asp:Label>
-            </p>
+        <div class="row mb-3" style="padding-right: 15px">
+            <div class="col-lg-9" style="max-width: 800px; display: inherit">
+                <button runat="server" id="btTestNameEdit" onserverclick="btTestNameEdit_Click" class="btn-step" title="Изменить" causesvalidation="false" display="Dynamic"><i class="fas fa-edit"></i></button>
+                <button runat="server" id="btTestNameSave" onserverclick="btTestNameSave_Click" class="btn-step btn-step-save" title="Сохранить" visible="false" causesvalidation="false" display="Dynamic"><i class="fas fa-check-circle"></i></button>
+                <asp:TextBox runat="server" ID="tbTestName" CssClass="test-name-disabled" MaxLength="150" ReadOnly="true"></asp:TextBox>
+            </div>
         </div>
         <div class="row">
             <asp:Label runat="server" ID="lblStatusID" Visible="false" display="Dynamic"></asp:Label>

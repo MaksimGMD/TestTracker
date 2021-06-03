@@ -409,3 +409,11 @@ h6 {
         transition: 0.3s;
         color: #383838
     }
+
+.test-name-disabled {
+    width: 100%;
+    border: none;
+    color: #212529;
+    font-weight: 400;
+    font-size: 1.3rem;
+}

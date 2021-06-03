@@ -38,7 +38,7 @@ namespace TestTracker.Pages.MainProject
                     rpTestStepFill(QRSteps);
                     ddlStatusFill();
                     rpCommentFill(QRComments);
-                    if(ddlStatus.SelectedValue == "4")
+                    if (ddlStatus.SelectedValue == "4")
                     {
                         dvResultSection.Visible = false;
                     }
@@ -84,7 +84,7 @@ namespace TestTracker.Pages.MainProject
             try
             {
                 DBConnection.connection.Open();
-                lblTestName.Text = command.ExecuteScalar().ToString();
+                tbTestName.Text = command.ExecuteScalar().ToString();
                 command.ExecuteNonQuery();
             }
             catch
@@ -358,7 +358,7 @@ namespace TestTracker.Pages.MainProject
                 getProjectId();
                 procedures.TestStatusUpdate(Convert.ToInt32(TestId), Convert.ToInt32(ProjectId), Convert.ToInt32(ddlStatus.SelectedValue.ToString()));
                 rpDetailsFill(QRdetails);
-                if(ddlStatus.SelectedValue != "4")
+                if (ddlStatus.SelectedValue != "4")
                 {
                     dvResultSection.Visible = true;
                 }
@@ -437,6 +437,26 @@ namespace TestTracker.Pages.MainProject
             }
             else
                 lblResultError.Visible = true;
+        }
+
+        //Сохранить название теста
+        protected void btTestNameSave_Click(object sender, EventArgs e)
+        {
+            DataProcedures procedures = new DataProcedures();
+            procedures.TestNameUpdate(Convert.ToInt32(TestId), tbTestName.Text);
+            tbTestName.CssClass = "test-name-disabled";
+            tbTestName.ReadOnly = true;
+            btTestNameSave.Visible = false;
+            btTestNameEdit.Visible = true;
+        }
+
+        //Изменить название теста
+        protected void btTestNameEdit_Click(object sender, EventArgs e)
+        {
+            tbTestName.CssClass = "form-control";
+            tbTestName.ReadOnly = false;
+            btTestNameSave.Visible = true;
+            btTestNameEdit.Visible = false;
         }
     }
 }

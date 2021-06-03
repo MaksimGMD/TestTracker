@@ -69,13 +69,31 @@ namespace TestTracker.Pages.MainProject
         protected global::System.Web.UI.HtmlControls.HtmlButton btBack;
 
         /// <summary>
-        /// lblTestName элемент управления.
+        /// btTestNameEdit элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTestName;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btTestNameEdit;
+
+        /// <summary>
+        /// btTestNameSave элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btTestNameSave;
+
+        /// <summary>
+        /// tbTestName элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbTestName;
 
         /// <summary>
         /// lblStatusID элемент управления.
