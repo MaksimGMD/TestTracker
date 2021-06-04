@@ -139,6 +139,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\landing.css" />
     <Content Include="Content\css\Styles.css" />
     <Content Include="Content\css\Admin.css" />
     <Content Include="Content\fontawesome\css\all.css" />
@@ -1768,9 +1769,19 @@
     <Content Include="Content\fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="Content\fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Content\img\admin-icon.png" />
+    <Content Include="Content\img\Admin.png" />
     <Content Include="Content\img\delete-icon.png" />
+    <Content Include="Content\img\description-icon-1.svg" />
+    <Content Include="Content\img\description-icon-2.svg" />
+    <Content Include="Content\img\description-icon-3.svg" />
+    <Content Include="Content\img\Excel.png" />
     <Content Include="Content\img\hacker.png" />
     <Content Include="Content\img\logo.svg" />
+    <Content Include="Content\img\mail.png" />
+    <Content Include="Content\img\Main.png" />
+    <Content Include="Content\img\Main2.png" />
+    <Content Include="Content\img\Test.png" />
+    <Content Include="Content\img\user.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Admin\Projects.aspx" />
@@ -1779,6 +1790,7 @@
     <Content Include="Pages\Admin\Tests.aspx" />
     <Content Include="Pages\Admin\Users.aspx" />
     <Content Include="Pages\Admin\Сomments.aspx" />
+    <Content Include="Pages\Common\Main.aspx" />
     <Content Include="Pages\MainProject\AddTest.aspx" />
     <Content Include="Pages\MainProject\FeedBack.aspx" />
     <Content Include="Pages\MainProject\Profile.aspx" />
@@ -2039,6 +2051,13 @@
     </Compile>
     <Compile Include="Pages\Common\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Common\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Common\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainProject\AddTest.aspx.cs">
       <DependentUpon>AddTest.aspx</DependentUpon>

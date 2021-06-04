@@ -17,7 +17,7 @@
         <div class="row justify-content-center">
             <div class="col">
                 <div class="login-icon">
-                    <a href="../MainProject/Projects.aspx">
+                    <a href="Main.aspx">
                         <img src="../../Content/img/logo.svg" alt="Test tracker" /></a>
                 </div>
             </div>
