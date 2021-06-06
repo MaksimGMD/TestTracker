@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Test tracker | Обратная связь" Language="C#" MasterPageFile="~/Pages/MainProject/Main.Master" AutoEventWireup="true" CodeBehind="FeedBack.aspx.cs" Inherits="TestTracker.Pages.MainProject.FeedBack" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cpMainContent" runat="server">
+    <asp:SqlDataSource runat="server" ID="sdsUser"></asp:SqlDataSource>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -17,6 +18,13 @@
                             <p class="h4">Письмо</p>
                         </div>
                     </div>
+                    <p style="color: #212529; font-size: 16px; margin-bottom: 5px">Отправитель</p>
+                    <div class="row mb-1">
+                        <asp:Label runat="server" ID="lblName" Style="color: #6b778c; font-size: 16px"></asp:Label>
+                    </div>
+                    <div class="row mb-3">
+                        <asp:Label runat="server" ID="lblEmail" Style="color: #6b778c; font-size: 16px"></asp:Label>
+                    </div>
                     <div class="form-group">
                         <label for="tbPhone">Тема сообщения</label>
                         <asp:DropDownList ID="ddlTittle" runat="server" CssClass="form-control">
@@ -31,16 +39,7 @@
                         <asp:TextBox ID="tbMessage" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" placeholder="Введите сообщение"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="Error" ErrorMessage="Введите сообщение" Display="Dynamic" ControlToValidate="tbMessage"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="form-group">
-                        <label for="tbName">Имя</label>
-                        <asp:TextBox ID="tbName" CssClass="form-control" runat="server" placeholder="Введите имя"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="Error" ErrorMessage="Введите имя" Display="Dynamic" ControlToValidate="tbName"></asp:RequiredFieldValidator>
-                    </div>
-                    <div class="form-group">
-                        <label for="tbmail">Адрес почты</label>
-                        <asp:TextBox ID="tbmail" runat="server" CssClass="form-control" placeholder="Введите адрес электронной почты" type="email" TextMode="Email"></asp:TextBox>
-                    </div>
-                    <div style="text-align:end">
+                    <div style="text-align: end">
                         <asp:Button ID="btSubmit" runat="server" Text="Отправить" CssClass="btn btn-success" OnClick="btSubmit_Click" />
                     </div>
                 </div>

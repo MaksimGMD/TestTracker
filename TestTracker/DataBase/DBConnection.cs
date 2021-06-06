@@ -164,7 +164,11 @@ namespace TestTracker
                 connection.Close();
             }
         }
-
+        /// <summary>
+        /// Получает последний добавленный id
+        /// </summary>
+        /// <param name="IdProject">id проекта</param>
+        /// <returns></returns>
         public string GetLastId(string IdProject)
         {
             try
@@ -178,6 +182,54 @@ namespace TestTracker
             {
                 LastId = "0";
                 return LastId;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// Получает ФИО пользователя
+        /// </summary>
+        /// <param name="IdUser">ID пользователя</param>
+        /// <returns>Данные пользователя</returns>
+        public string GetUserName(int IdUser)
+        {
+            string UserName;
+            try
+            {
+                command.CommandText = "select [UserSurname] + ' ' + [UserName] + ' ' + [UserMiddleName] from [User] where [UserId] like '%" + IdUser + "%'";
+                connection.Open();
+                UserName = command.ExecuteScalar().ToString();
+                return UserName;
+            }
+            catch
+            {
+                return "Нет данных";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /// <summary>
+        /// Получает почту пользователя
+        /// </summary>
+        /// <param name="IdUser">ID пользователя</param>
+        /// <returns>Данные пользователя</returns>
+        public string GetMail(int IdUser)
+        {
+            string UserMail;
+            try
+            {
+                command.CommandText = "select [UserEmail] from [User] where [UserId] like '%" + IdUser + "%'";
+                connection.Open();
+                UserMail = command.ExecuteScalar().ToString();
+                return UserMail;
+            }
+            catch
+            {
+                return "Нет данных";
             }
             finally
             {
