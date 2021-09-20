@@ -1798,6 +1798,7 @@
     <Content Include="Pages\MainProject\SharePage.aspx" />
     <Content Include="Pages\MainProject\TestDetails.aspx" />
     <Content Include="Pages\MainProject\TestExport.aspx" />
+    <Content Include="Pages\MainProject\TestImport.aspx" />
     <Content Include="Pages\MainProject\Tests.aspx" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2114,6 +2115,13 @@
     </Compile>
     <Compile Include="Pages\MainProject\TestExport.aspx.designer.cs">
       <DependentUpon>TestExport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainProject\TestImport.aspx.cs">
+      <DependentUpon>TestImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MainProject\TestImport.aspx.designer.cs">
+      <DependentUpon>TestImport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainProject\Tests.aspx.cs">
       <DependentUpon>Tests.aspx</DependentUpon>

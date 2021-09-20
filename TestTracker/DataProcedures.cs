@@ -131,7 +131,7 @@ namespace TestTracker
         }
         //Добавление теста
         public void TestInsert(string TestName, string TestDescription, string TestDate, string TestResult, 
-            string TestJiraNumber, bool TestLogicalDelete, int IdStatus, int IdProject)
+            string TestJiraNumber, bool TestLogicalDelete, int IdStatus, int IdProject, string FunctionalCategory)
         {
             commandConfig("TestInsert");
             command.Parameters.AddWithValue("@TestName", TestName);
@@ -142,6 +142,7 @@ namespace TestTracker
             command.Parameters.AddWithValue("@TestLogicalDelete", TestLogicalDelete);
             command.Parameters.AddWithValue("@IdStatus", IdStatus);
             command.Parameters.AddWithValue("@IdProject", IdProject);
+            command.Parameters.AddWithValue("@FunctionalCategory", FunctionalCategory); 
             DBConnection.connection.Open();
             command.ExecuteNonQuery();
             DBConnection.connection.Close();

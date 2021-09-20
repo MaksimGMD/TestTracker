@@ -172,7 +172,7 @@ namespace TestTracker.Pages.MainProject
             DBConnection connection = new DBConnection();
             try
             {
-                procedures.TestInsert(tbTestName.Text, tbDescription.Text, DateTime.Now.ToString("dd.MM.yyyy"), string.Empty, tbJira.Text, false, 4, Convert.ToInt32(ProjectId));
+                procedures.TestInsert(tbTestName.Text, tbDescription.Text, DateTime.Now.ToString("dd.MM.yyyy"), string.Empty, tbJira.Text, false, 4, Convert.ToInt32(ProjectId), String.Empty);
                 connection.GetLastId(ProjectId);
                 rpTestStepFill(QRSteps);
                 dvStepSection.Visible = true;

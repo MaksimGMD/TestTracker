@@ -372,7 +372,7 @@ namespace TestTracker.Pages.MainProject
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Не удалось обновить запись :(')", true);
             }
         }
-        //Добавление комментария
+        //Добавление Атария
         protected void btAddComment_Click(object sender, EventArgs e)
         {
             DataProcedures procedures = new DataProcedures();

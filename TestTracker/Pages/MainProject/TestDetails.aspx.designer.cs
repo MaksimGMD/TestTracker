@@ -7,13 +7,11 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace TestTracker.Pages.MainProject
-{
-
-
-    public partial class TestDetails
-    {
-
+namespace TestTracker.Pages.MainProject {
+    
+    
+    public partial class TestDetails {
+        
         /// <summary>
         /// sdsUsers элемент управления.
         /// </summary>
@@ -22,7 +20,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sdsUsers;
-
+        
         /// <summary>
         /// sdsDetails элемент управления.
         /// </summary>
@@ -31,7 +29,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sdsDetails;
-
+        
         /// <summary>
         /// sdsTestStep элемент управления.
         /// </summary>
@@ -40,7 +38,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sdsTestStep;
-
+        
         /// <summary>
         /// sdsStatus элемент управления.
         /// </summary>
@@ -49,7 +47,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sdsStatus;
-
+        
         /// <summary>
         /// sdsComments элемент управления.
         /// </summary>
@@ -58,7 +56,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sdsComments;
-
+        
         /// <summary>
         /// btBack элемент управления.
         /// </summary>
@@ -67,7 +65,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btBack;
-
+        
         /// <summary>
         /// btTestNameEdit элемент управления.
         /// </summary>
@@ -76,7 +74,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btTestNameEdit;
-
+        
         /// <summary>
         /// btTestNameSave элемент управления.
         /// </summary>
@@ -85,7 +83,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btTestNameSave;
-
+        
         /// <summary>
         /// tbTestName элемент управления.
         /// </summary>
@@ -94,7 +92,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbTestName;
-
+        
         /// <summary>
         /// lblStatusID элемент управления.
         /// </summary>
@@ -103,7 +101,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStatusID;
-
+        
         /// <summary>
         /// ddlStatus элемент управления.
         /// </summary>
@@ -112,7 +110,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
-
+        
         /// <summary>
         /// btStatusUpdate элемент управления.
         /// </summary>
@@ -121,7 +119,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btStatusUpdate;
-
+        
         /// <summary>
         /// tbDescription элемент управления.
         /// </summary>
@@ -130,7 +128,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbDescription;
-
+        
         /// <summary>
         /// lblDecsError элемент управления.
         /// </summary>
@@ -139,7 +137,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDecsError;
-
+        
         /// <summary>
         /// btEditDesc элемент управления.
         /// </summary>
@@ -148,7 +146,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btEditDesc;
-
+        
         /// <summary>
         /// btCancel элемент управления.
         /// </summary>
@@ -157,7 +155,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btCancel;
-
+        
         /// <summary>
         /// btSaveDesc элемент управления.
         /// </summary>
@@ -166,7 +164,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btSaveDesc;
-
+        
         /// <summary>
         /// dvResultSection элемент управления.
         /// </summary>
@@ -175,7 +173,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvResultSection;
-
+        
         /// <summary>
         /// tbResult элемент управления.
         /// </summary>
@@ -184,7 +182,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbResult;
-
+        
         /// <summary>
         /// lblResultError элемент управления.
         /// </summary>
@@ -193,7 +191,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultError;
-
+        
         /// <summary>
         /// btEditResult элемент управления.
         /// </summary>
@@ -202,7 +200,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btEditResult;
-
+        
         /// <summary>
         /// btCancelResult элемент управления.
         /// </summary>
@@ -211,7 +209,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btCancelResult;
-
+        
         /// <summary>
         /// btSaveResult элемент управления.
         /// </summary>
@@ -220,7 +218,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btSaveResult;
-
+        
         /// <summary>
         /// tbAddStep элемент управления.
         /// </summary>
@@ -229,7 +227,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbAddStep;
-
+        
         /// <summary>
         /// RequiredFieldValidator1 элемент управления.
         /// </summary>
@@ -238,7 +236,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
+        
         /// <summary>
         /// btAddStep элемент управления.
         /// </summary>
@@ -247,7 +245,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btAddStep;
-
+        
         /// <summary>
         /// rpTestStep элемент управления.
         /// </summary>
@@ -256,7 +254,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpTestStep;
-
+        
         /// <summary>
         /// tbComment элемент управления.
         /// </summary>
@@ -265,7 +263,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbComment;
-
+        
         /// <summary>
         /// btAddComment элемент управления.
         /// </summary>
@@ -274,7 +272,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btAddComment;
-
+        
         /// <summary>
         /// rpComments элемент управления.
         /// </summary>
@@ -283,7 +281,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpComments;
-
+        
         /// <summary>
         /// rpDetails элемент управления.
         /// </summary>
@@ -292,7 +290,7 @@ namespace TestTracker.Pages.MainProject
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpDetails;
-
+        
         /// <summary>
         /// rpUsers элемент управления.
         /// </summary>

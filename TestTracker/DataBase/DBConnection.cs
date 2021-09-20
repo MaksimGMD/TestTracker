@@ -12,7 +12,7 @@ namespace TestTracker
 
         //Строка подключения к базе данных
         public static SqlConnection connection = new SqlConnection(
-            "Data Source=DESKTOP-2OC8HFJ\\MYGRIT; Initial Catalog=TestTracker;" +
+            "Data Source=DESKTOP-R4P89MK\\MYGRIT; Initial Catalog=TestTracker;" +
             "Integrated Security=True; Connect Timeout=30; Encrypt=False;" +
             "TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False");
 
